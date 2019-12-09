@@ -1,0 +1,41 @@
+<html>
+<head></head>
+<body>
+    <script>
+        // 요일
+        var yoils = ['일','월','화','수','목','금','토'];
+        var date = new Date();
+        var yoil = date.getDay(); // 1
+        // var result = yoils[yoil];
+        var today = getDay(yoil);
+
+        console.log("오늘은 무슨 요일 ? " + today);
+
+        function getDay(_yoil){
+            return yoils[_yoil] + "요일";
+        }
+
+        var pig = "돼지";
+        var cow = "소";
+        var duck = "오리";
+        var afterPig = cook(pig);
+        var afterCow = cook(duck);
+        var afterDuck = cook(duck);
+        console.log(afterPig, afterCow, afterDuck);
+
+        function cook(_val){
+            return "가공된" + _val;
+        }
+
+        // 문제1 
+        // 어떤 문장이든 끝 자리에 .마침표가 붙는
+        // 콜백함수를 만들어보세요.
+
+        // 문제2
+        // 배열을 만드는데 ['일','월','화','수','목','금','토']
+        // 콜백함수와 for문을 써서 일요일 월요일 .... 토요일
+        // 이 출력되게 해보세요.
+    
+    </script>
+</body>
+</html>

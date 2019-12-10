@@ -1,0 +1,37 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button onclick="send('빨리오세요!')">
+        <h1>보내기</h1>
+    </button>
+    <button onclick="receive()">
+        <h1>받기</h1>
+    </button>
+
+    <script>
+
+        function send(_value){
+            alert(_value);
+        }
+
+        function receive(){
+            var num = 2;
+            send(num + '개를 받습니다');
+        }
+
+        function add(_value, _value2){
+            var result = _value + _value2;
+            console.log(result);
+        }
+
+        add(200, 100);
+
+        // 문제! 매개 변수 두 개중
+        // 앞에 숫자에서 뒤에 숫자를 빼고
+        // 그 결과를 출력하는 함수를 만들어보세요
+
+    </script>
+</body>
+</html>

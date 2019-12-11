@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn01">
+        <h1>버튼1</h1>
+    </button>
+    <button id="btn02">
+        <h1>버튼2</h1>
+    </button>
+    <button id="btn03">
+        <h1>버튼3</h1>
+    </button>
+    <h1>결과: <span id="result"></span></h1>
+
+    <script>
+
+        //naver만 추출
+        //나머지 다 뺴고 naver를 네이버 한글로 변경해서 출력하기
+        //str에서 고객님을 사랑하는 고객님으로 바꿔서 출력하기
+
+        document.getElementById('btn01').onclick = function(){
+            var url = "https://naver.com";
+            var result = url.slice(8,13);
+            output(result);
+        }
+        document.getElementById('btn02').onclick = function(){
+            var url = "https://naver.com";
+            var result01 = url.slice(8,13);
+            var result = result01.replace("naver", "네이버");
+            output(result);
+        }
+        document.getElementById('btn03').onclick = function(){
+            var str = "환영합니다 고객님"
+            var result = str.replace("고객님", "사랑하는 고객님");
+            output(result);
+        }
+
+        function output(_result){
+            document.getElementById('result').innerHTML = _result;
+        }
+    </script>
+</body>
+</html>

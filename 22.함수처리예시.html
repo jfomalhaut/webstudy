@@ -1,0 +1,39 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <button id="btn3">버튼3</button>
+    <button id="btn4">버튼4</button>
+    <button id="btn5">버튼5</button>
+    <button id="btn6">버튼6</button>
+    <script>
+        document.getElementById('btn1').onclick = function(){
+            clickBtn(1);
+        }
+        document.getElementById('btn2').onclick = function(){
+            clickBtn(2);
+        }
+        document.getElementById('btn3').onclick = function(){
+            clickBtn(3);
+        }
+        document.getElementById('btn4').onclick = function(){
+            clickBtn(4);
+        }
+        document.getElementById('btn5').onclick = function(){
+            clickBtn(5);
+        }
+        document.getElementById('btn6').onclick = function(){
+            clickBtn(6);
+        }
+
+        function clickBtn(_value){
+            alert(_value + "번버튼");
+        }
+
+        
+    </script>
+</body>
+</html>

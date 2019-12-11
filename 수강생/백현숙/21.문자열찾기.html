@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <input type="text" id="txt"><br><br>
+
+    <button id="count"><h1>갯수 구하기</h1></button>
+    <button id="find"><h1>문자열"D" 찾기</h1></button>
+    <button id="findLastD"><h1>마지막 "D" 찾기</h1></button>
+
+    <h1>결과 : <span id="result"></span>
+    </h1>
+    <script>
+        document.getElementById('count').onclick=function(){
+            var txt = document.getElementById('txt').value;
+            var length = txt.length;
+            document.getElementById('result').innerHTML=length;
+        }
+        document.getElementById('find').onclick=function(){
+            var txt = document.getElementById('txt').value;
+            var result = txt.indexOf("D");
+            document.getElementById('result').innerHTML = result;
+        }
+        document.getElementById('findLastD').onclick=function(){
+            var txt = document.getElementById('txt').value;
+            var result = txt.lastIndexOf("D");
+            document.getElementById('result').innerHTML=result;
+        }
+    </script>
+</body>
+</html>

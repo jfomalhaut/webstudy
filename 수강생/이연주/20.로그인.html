@@ -5,15 +5,29 @@
 <body>
     <input type="text" id="idd">
     <input type="password" id="pw">
-    <button id="login">로그인</button>
+    <button id="login">
+        로그인
+    </button>
+
     <script>
+        //작업 순서 정하기
+        // 1. login버튼 클릭 이벤트
+        // 2. id 값불러오기
+        // 3. pw 값불러오기
+        // 4. if으로 조건 만들기
+        // 5. 출력하기
+
+
         document.getElementById('login').onclick = function(){
             var idd = document.getElementById('idd').value;
             var pw = document.getElementById('pw').value;
+            
             if(idd === ""){
                 alert('아이디가 입력되지 않았습니다');
             }else if(pw === ""){
                 alert('비밀번호가 입력되지 않았습니다');
+            }else{
+                alert('로그인이 되었습니다')
             }
         }
     

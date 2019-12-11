@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txt" placeholder="아이디" value="">
+    <input type="password" id="pass" placeholder="비밀번호" value="">
+
+    <button id="login">
+        <h1>로그인</h1>
+    </button>
+    <script>
+        /*
+            아이디, 비밀번호 입력창을 만들고 로그인 버튼을 눌렀을떄
+            값이 입력되지 않으면 alert로 출력해보세요 (아이디가 입력되지 않았습니다.)
+        
+        */
+
+        document.getElementById('login').onclick = function(){
+            var txt = document.getElementById('txt').value;
+            var pass = document.getElementById('pass').value;
+            if(txt === ""){
+                alert("입력되지않았습니다.");
+            }
+            else if(pass === ""){
+                alert("입력되지않았습니다.");
+            }
+            else{
+                alert("해당없음");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+
+</head>
+<body>
+    
+    <button id="btn1"><h2>추출</h2></button>
+    <button id="btn2"><h2>변경</h2></button>
+    <button id="btn3"><h2>등록</h2></button>
+
+    <h1>결과 : <span id="result"></span></h1>
+
+
+    <script>
+        
+        document.getElementById('btn1').onclick = function(){
+            var url = "http://naver.com";
+            var result = url.slice(7,12);
+            output(result);
+        }
+
+
+        document.getElementById('btn2').onclick = function(){
+            var url = "http://naver.com";
+            var c1 = url.slice(7,12);
+            var result = c1.replace("naver", "네이버");
+            output(result);
+        }
+        document.getElementById('btn3').onclick = function(){
+            var str = "환영합니다 고객님!";
+            var result = str.replace("고객님!" , "사랑하는 고객님!");
+            output(result);
+        }
+        
+
+
+
+
+        function output(_result){
+            document.getElementById('result').innerHTML = _result;
+        }
+
+    </script>
+</body>
+</html>

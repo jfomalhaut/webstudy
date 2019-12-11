@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <button onclick="change()">
+        <h1>변경</h1>
+    </button>
+
+    <button id="add">
+        <h1>추가</h1>
+    </button>
+
+    <button id="test">
+        <h1>TEST</h1>
+    </button>
+
+
+
+    <script>
+        function change(){
+            document.getElementById('box').style.backgroundColor = "green";
+        }
+
+        document.getElementById('add').onclick = function(){
+            alert('추가 버튼 클릭');
+        }
+    </script>
+</body>
+</html>

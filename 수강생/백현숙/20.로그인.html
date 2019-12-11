@@ -15,7 +15,13 @@
        document.getElementById('btn').onclick=function(){
            var id = document.getElementById('id').value;
            var pw= document.getElementById('pw').value;
-        alert('아이디가 입력되지 않았습니다')
+           if(id===" "){
+            alert('아이디가 입력되지 않았습니다');
+           }else if(pw===" "){
+            alert('비밀번호가 입력되지 않았습니다');
+           }else{
+               alert('해당없음')
+           }
        };
     
     </script>

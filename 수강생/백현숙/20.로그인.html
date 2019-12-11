@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="id" id="id" value="" placeholder="id">
+    <input type="password" id="pw" value="" placeholder="pw">
+    <button id="btn"><h1>버튼</h1></button>
+   
+   <script>
+       document.getElementById('btn').onclick=function(){
+           var id = document.getElementById('id').value;
+           var pw= document.getElementById('pw').value;
+           if(id===" "){
+            alert('아이디가 입력되지 않았습니다');
+           }else if(pw===" "){
+            alert('비밀번호가 입력되지 않았습니다');
+           }else{
+               alert('해당없음')
+           }
+       };
+    
+    </script>
+</body>
+</html>

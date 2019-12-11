@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button onclick="change()"><h1>변경</h1></button>
+
+    <button id ="add"><h1>추가</h1></button>
+
+    <button id="test"><h1>TEST</h1></button>
+    <script>
+        function change(){
+            document.getElementById('box').style.backgroundColor="red";
+        }
+
+        document.getElementById('add').onclick = function(){
+            alert('추가 버튼 클릭');
+        }
+        document.getElementById('test').onclick = function(){
+            console.log('test');
+        }
+    </script>
+</body>
+</html>

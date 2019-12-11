@@ -1,20 +1,22 @@
 <html>
 <head>
-
+    <style>
+        input{ padding: 10px; font-size: 30px; color: red;}
+        span{color: blue;}
+    </style>
 </head>
 <body>
     <input type="text" id="txt"><br><br>
 
     <button id="count">
-        갯수구하기
+        <h1>갯수구하기</h1>
     </button>
     <button id="find">
-        문자열 "D" 찾기
+        <h1>문자열 "D" 찾기</h1>
     </button>
     <button id="findLastD">
-        마지막 "D" 찾기
+        <h1>마지막 "D" 찾기</h1>
     </button>
-
 
     <h1>결과 : <span id="result"></span></h1>
     <script>
@@ -23,11 +25,13 @@
             var length = txt.length;
             document.getElementById('result').innerHTML = length;
         }
+
         document.getElementById('find').onclick = function(){
             var txt = document.getElementById('txt').value;
             var result = txt.indexOf("D");
             document.getElementById('result').innerHTML = result;
         }
+        
         document.getElementById('findLastD').onclick = function(){
             var txt = document.getElementById('txt').value;
             var result = txt.lastIndexOf("D");

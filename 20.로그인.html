@@ -1,0 +1,39 @@
+<html>
+<head>
+
+</head>
+<body>
+    <input type="text" id="userId">
+    <input type="password" id="userPwd">
+    <br>
+    <button id="login">
+        <h1>로그인</h1>
+    </button>
+    <script>
+        // 아이디, 비밀번호 입력창을 만들고
+        // 로그인 버튼을 눌렀을 때
+        // 값이 입력되지 않으면 alert로 출력해보세요 ("아이디가 입력되지 않았습니다")    
+
+        // 1. login버튼 클릭 이벤트 만들기
+        // 2. id값 불러오기
+        // 3. pwd값 불러오기
+        // 4. if문으로 확인하기
+        //  1) 문자열, 글자수,
+        // 5. 출력하기
+
+        document.getElementById('login').onclick = function(){
+            var userId = document.getElementById('userId').value;
+            var userPwd = document.getElementById('userPwd').value;
+
+            if(userId === ''){
+                alert('아이디를 입력해주세요');
+            }else if(userPwd === ''){
+                alert('비밀번호를 입력해주세요');
+            }else{
+                alert('로그인 성공!!');
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="id" id="userId" value="" placeholder="id">
+    <input type="password" id="pw" value="" placeholder="pw">
+    <button id="btn"><h1>버튼</h1></button>
+   
+   <script>
+    //    1. login버튼 클릭 이벤트 만들기
+    //    2. id값 불러오기
+    //    3. pw값 불러오기
+    //    4. if문으로 확인하기
+    //    1)문자열, 글자수
+    //    5.출력하기
+
+       document.getElementById('btn').onclick=function(){
+           var userId = document.getElementById('userId').value;
+           var pw= document.getElementById('pw').value;
+           if(userId===""){
+            alert('아이디가 입력되지 않았습니다');
+           }else if(pw===""){
+            alert('비밀번호가 입력되지 않았습니다');
+           }else{
+               alert('해당없음')
+           }
+       };
+    
+    </script>
+</body>
+</html>

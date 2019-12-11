@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="id2" value="">
+    <input type="password" id="pwd" value="">
+    <button id="login">
+        <h1>로그인</h1>
+    </button>
+    <script>
+        document.getElementById('login').onclick = function(){
+            var id2 = document.getelementBtId('id2').value;
+            var pwd = document.getelementBtId('pwd').value;
+            if(id2 === ""){
+                alert('아이디가 입력되지 않았습니다');
+            }else if(pwd === ""){
+                alert('비밀번호가 입력되지 않았습니다');
+            }
+            
+        }
+    </script>
+</body>
+</html>

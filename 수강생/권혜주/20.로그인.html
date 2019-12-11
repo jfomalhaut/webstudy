@@ -1,0 +1,27 @@
+<html>
+<head>
+
+</head>
+<body>
+    <input type="text" id="name">
+    <input type="password" id="pw">
+    <button id="chk">
+        <h1>로그인</h1>
+    </button>
+    
+    
+    <script>
+        document.getElementById('chk').onclick = function(){
+            var name = document.getElementById('name').value;
+            var pw = document.getElementById('pw').value;
+            if (name === ""){
+                alert('아이디를 입력하세요.');
+            }else if (pw ===''){
+                alert('비밀번호를 입력하세요.');
+            }else{
+                alert('환영합니다.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<haed>
+    
+</haed>
+<body>
+    <input type="text" id="idd">
+    <input type="password" id="pw">
+    <button id="login">로그인</button>
+    <script>
+        document.getElementById('login').onclick = function(){
+            var idd = document.getElementById('idd').value;
+            var pw = document.getElementById('pw').value;
+            if(idd === ""){
+                alert('아이디가 입력되지 않았습니다');
+            }else if(pw === ""){
+                alert('비밀번호가 입력되지 않았습니다');
+            }
+        }
+    
+    </script>
+</body>
+</html>

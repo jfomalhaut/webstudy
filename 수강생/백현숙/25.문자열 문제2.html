@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="scrNum">   
+    <span> - </span> 
+    <input type="text" id="scrNum2">
+    <button id="result">결과 버튼</button>
+    
+    <script>
+
+        document.getElementById('result').onclick= function(){
+        var scrNum = document.getElementById('scrNum').value;
+        var scrNum2 = document.getElementById('scrNum2').value;
+        var scrlenth = scrNum.length+scrNum2.length
+        if(scrlenth===13){
+        alert('확인 완료');
+
+        }else{
+            alert('갯수 틀림');
+        }
+        }
+        
+
+    </script>
+</body>
+</html>

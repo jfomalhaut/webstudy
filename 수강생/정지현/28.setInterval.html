@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #result{
+            color: teal;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>결과: <span id="result"></span></h1>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+
+    <script>
+        
+        var setIn;
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        var num = 0;
+        function start(){
+            setIn = setInterval(function(){
+                        num++;
+                        console.log(num);
+                    }, 1000);
+        }
+
+        function end(){
+            clearInterval(setIn);
+        }
+        
+    </script>
+</body>
+</html>

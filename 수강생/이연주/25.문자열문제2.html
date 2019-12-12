@@ -1,0 +1,27 @@
+<html>
+<head>
+
+</head>
+<body>
+    <input type="text" id="num">
+    <span>-</span>
+    <input type="text" id="num2">
+    <button id="click">
+        확인
+    </button>
+    <h1>결과 : <span id="result"></span></h1>
+
+    <script>
+        document.getElementById('click').onclick = function(){
+            var num = document.getElementById('num').value; 
+            var length = num.length;
+            var num2 = document.getElementById('num2').value; 
+            var length2 = num2.length;
+            
+            document.getElementById('result').innerHTML = length + length2;
+            console.log(result);
+            output(result);
+        }
+    </script>
+</body>
+</html>

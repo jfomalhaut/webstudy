@@ -1,0 +1,44 @@
+<html>
+<head>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- id는 고유한 이름 -->
+    <div id="box"></div>
+
+    <button onclick="change()">
+        <h1>변경</h1>
+    </button>
+
+    <button id="add">
+        <h1>추가</h1>
+    </button>
+
+    <button id="test">
+        <h1>TEST</h1>
+    </button>
+
+    <script>
+        //클릭 이벤트//
+        function change(){
+            document.getElementById('box').style.backgroundColor = "red";
+        }
+        
+        //onclick을 사용하지않고 스크립트에서 적용
+        document.getElementById('add').onclick = function(){
+            alert('추가 버튼 클릭');
+        }
+
+        document.getElementById('test').onclick = function(){
+            console.log('안녕하세요');
+        }
+    </script>
+</body>
+</html>

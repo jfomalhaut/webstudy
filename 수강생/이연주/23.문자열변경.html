@@ -1,0 +1,50 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <button id="btn1">
+        2~5문자 추출
+    </button>
+    <button id="btn2">
+        2~5문자 추출2
+    </button>
+    <button id="btn3">
+        2부터 5개 문자 추출
+    </button>
+    <button id="change">
+        A 문자열 변경
+    </button>
+    <br><br>
+    <h1>결과 : <span id="result"></span></h1>
+
+
+    <script>
+
+        document.getElementById('btn1').onclick = function(){
+            var str = "ABCDEFGHIJKLMN";
+            var result = str.slice(2,5);
+            output(result);
+        }
+        document.getElementById('btn2').onclick = function(){
+            var str = "ABCDEFGHIJKLMN";
+            var result = str.substring(2,5);
+            output(result);
+        }
+        document.getElementById('btn3').onclick = function(){
+            var str = "ABCDEFGHIJKLMN";
+            var result = str.substr(2,5);
+            output(result);
+        }
+        document.getElementById('change').onclick + function(){
+            var str = "ABCDEFGHIJKLMN";
+            var result = str.replace("A","에이");
+            output(result);
+        }
+
+        function output(_result){
+            document.getElementById('result').innerHTML = _result;
+        }
+    </script>
+</body>
+</html>

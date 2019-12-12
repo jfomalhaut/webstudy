@@ -1,0 +1,49 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button id="only">문제1</button>
+    <button id="kor">문제2</button>
+    <button id="long">문제3</button>
+    <br>
+    <h1>결과 : <span id="result"></span></h1>
+
+
+    <script>
+        var url = "https://naver.com";
+        var str = "환영합니다 고객님!";
+
+
+        document.getElementById('only').onclick = function(){
+            var url = "https://naver.com";
+            var result = url.substr(8,5);
+            output(result);
+        }
+
+        document.getElementById('kor').onclick = function(){
+            var url = "https://naver.com";
+            var result = url.substring(8,13);
+            if(result === "naver"){
+                change = "네이버";
+            }
+            output(change);
+        }
+
+        document.getElementById('long').onclick = function(){
+            var str = "환영합니다 고객님!";
+            var result = str.replace("고객님","사랑하는 고객님");
+            output(result);
+
+        }
+
+        function output(_result){
+            document.getElementById('result').innerHTML = _result;
+        }
+
+        //1. naver만 추출
+        //2. 나머지 다 뗴고 naver를 네이버한글로 변경
+        //3. str 고객님을 사랑하는 고객님으로 바꿔서 출력
+    </script>
+</body>
+</html>

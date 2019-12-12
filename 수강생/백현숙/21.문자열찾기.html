@@ -14,19 +14,29 @@
     </h1>
     <script>
         document.getElementById('count').onclick=function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var length = txt.length;
-            document.getElementById('result').innerHTML=length;
+            output(length);
         }
         document.getElementById('find').onclick=function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var result = txt.indexOf("D");
-            document.getElementById('result').innerHTML = result;
+            output(result);
         }
         document.getElementById('findLastD').onclick=function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var result = txt.lastIndexOf("D");
-            document.getElementById('result').innerHTML=result;
+            output(result);
+        }
+
+        function getTxt(){
+            var txt =  document.getElementById('txt').value;
+            return txt;
+        }
+
+        //  output 매개변수에 있는 값을 result에 출력해주는 함수
+        function output(_value){
+            document.getElementById('result').innerHTML=_value;
         }
     </script>
 </body>

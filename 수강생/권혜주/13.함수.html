@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    
+    <button onclick="start()">
+        <h1>시작</h1>
+    </button>
+    <button onclick="end()">
+        <h1>종료</h1>
+    </button>
+
+
+    <script>
+        // start();
+        // // 함수는 스위치를 해줘야함 -> 이름을 불러줘야함 -> 클릭, 드래그 등 액션이 있을 때 작동
+        // end();
+        
+        var fax = "오늘 오후 10시 회식이랍니다"; //전역변수
+        var fax2 = "복장은 정장입니다";
+
+        sales(fax, fax2);
+        
+
+        //함수는 document 내에서 작동, script에서 작동가능, 매개변수를 전달할 수 있다.
+        //매개변수를 전달할 때 받을 때, 줄 때 갯수가 일치해야 한다.
+
+
+
+        function sales(_value, _value2){ // value는 매개변수 -> 함수와 붙어서 오는 것, 굳이 선언해줄 필요 없음.
+            var open2 = 10; //지역변수 -> 함수안에서 선언 된 것. 즉, 함수 밖에서는 알 수 없음.
+            console.log('영업부');
+            console.log(_value);
+            console.log(_value2);
+        }
+
+
+        function start(){
+            console.log('start');
+        }
+        function end(){
+            console.log('end');
+        }
+
+    </script>
+</body>
+</html>

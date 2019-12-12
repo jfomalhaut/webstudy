@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        #result{color : red;}
+    </style>
+</head>
+<body>
+    <h1>결과 : <span id="result"></span></h1>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+
+
+    <script>
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+
+        function start(){
+            var num = 0;
+            setend = setInterval(function(){
+                num++;
+                console.log(num);
+            },500);
+        }
+
+        function end(){
+            clearInterval(setend);
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+
+</head>
+<body>
+    <input type="text" id="data">
+    <button id="chk">
+        <h1>확인</h1>
+    </button>
+
+    <script>
+        // click 이벤트
+        document.getElementById('chk').onclick = function(){
+            var data = document.getElementById('data').value;
+            alert(data + ', 확인했습니다.');
+        }
+    </script>
+</body>
+</html>

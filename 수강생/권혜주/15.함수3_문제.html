@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+
+    <button onclick = "dom()">
+        <h1>구매하기</h1>
+    </button>
+    <script>
+
+          
+        
+        function dom(){
+            som(1000); 
+        }
+
+        function som(_val){
+            var price = _val * 1.2;
+            market(price);
+        }
+
+        function market(_val){
+            var price = _val * 1.2;
+            document.write('<h1>' + price + '</h1>');
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        // 평균 구하기 필요한 것
+        // 1. 나누는 방법
+        // 2. 소수점으로 나올 경우 - Math.round(변수) - 1) round : 반올림 / 2)ceil : 올림 / 3) floor : 버림
+        
+        var name = prompt('이름을 입력하세요.');
+        var lan = Number(prompt('국어 점수를 입력하세요'));
+        var math = Number(prompt('수학 점수를 입력하세요'));
+        var en = Number(prompt('영어 점수를 입력하세요'));
+
+        var plus = (lan + math + en);
+        var average = plus/3;
+        average = Math.round(average);
+        var score;
+
+        //  or -> || and -> &&
+
+
+        if (average > 100){
+            score = '범위가 초과되었습니다.';
+        }
+        else if (average > 89){
+            score = '수';
+        }
+        else if (average > 79){
+            score = '우';
+        }
+        else if (average > 69){
+            score = '미';
+        }
+        else if (average > 59){
+            score = '양';
+        }
+        else if (average >= 0){
+            score = '가';
+        }
+        else {
+            score = '잘못된 점수입니다.';
+        }
+
+        var result = name + " " + '총합:' + plus + '점 ' + '평균:' + average + '점 ' + '등급:' + score;
+        console.log(result);
+
+
+
+    
+
+
+    </script>
+</body>
+</html>

@@ -1,21 +1,37 @@
 <html>
-<head></head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
 <body>
     <script>
-        
+        var yoils = ['일' ,'월' ,'화' , '수' , '목' , '금' , '토'];
+        var date = new Date();
+        var yoil = date.getDay();
+        // var result = yoils[yoil];
+        var today = getDay(yoil);
 
-        var day = result(['일','월','화','수','목','금','토']);
-        var length = day.length;
-        
-        for (var i = 0; i < length; i++){
-            console.log( day[i] + '요일');
+        console.log("오늘의 날짜는 ? " + today); 
+        function getDay(_yoil){
+            return yoils[_yoil] + "요일";
         }
 
-        function result(_val){
-            return _val + "요일";
+        var pig = "돼지";
+        var afterPig = cook(pig);
+        console.log(afterPig);
+
+        function cook(_val){
+            return "가공된" + _val;
         }
 
 
+
+        var prize = lotto("로또당첨");
+        // var afterprize = lotto(prize);
+        console.log(prize); 
+
+        function lotto(_val){
+            return "축" + _val + "!";
+        }
     </script>
 </body>
 </html>

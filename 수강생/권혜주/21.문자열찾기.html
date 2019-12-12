@@ -19,19 +19,36 @@
     <h1>결과 : <span id="result"></span></h1>
     <script>
         document.getElementById('count').onclick = function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var length = txt.length;
-            document.getElementById('result').innerHTML = length;
+            // document.getElementById('result').innerHTML = length;
+            output(length);
         }
         document.getElementById('find').onclick = function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var result = txt.indexOf("D");
-            document.getElementById('result').innerHTML = result;
+            // document.getElementById('result').innerHTML = result;
+            output(result);
         }
         document.getElementById('findLastD').onclick = function(){
-            var txt = document.getElementById('txt').value;
+            var txt = getTxt();
             var result = txt.lastIndexOf("D");
-            document.getElementById('result').innerHTML = result;
+            // document.getElementById('result').innerHTML = result;
+            output(result);
+
+        }
+
+
+
+        //txt라는 아이디를 가진 태그의 값을 불러주는 용도
+        function getTxt(){
+            var txt = document.getElementById('txt').value;
+            return txt;
+        }
+        
+        //매개변수에 있는 값을 result에 출력해주는 함수
+        function output(_value) {
+            document.getElementById('result').innerHTML = _value;
         }
     </script>
 </body>

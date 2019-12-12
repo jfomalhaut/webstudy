@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script>
+        var str = "돼지"; 
+        // 문자열
+        var num = 1;
+        // 숫자형
+        var bool = true;
+        // 참거짓
+
+        // var arr = [1,2,3];
+        // var arr2 = ['철수', '영희', '민수'];
+        // var arr3 = [true, 1, '민수'];
+        // var class2 = ['철수', '영희', '민수'];
+
+        // console.log(class2[1]);
+
+
+        // for(var i = 0; i < 3; i++){
+        //     console.log(class2[i]);
+        //     document.write('<h1>' + class2[i] + '</h1>');
+        // }
+
+        var info = ['홍길동', 20, '을국도', '도적'];
+        var length = info.length;
+        var title;
+        
+        
+        for(
+            var i = 0; i < length; i++){
+            if(i === 0){
+                title = '이름 : ';
+            }else if(i === 1){
+                title = '나이 : ';
+            }else if(i === 2){
+                title = '사는 곳: '
+            }else if(i === 3){
+                title = '직업 : '
+            }
+
+            document.write('<h1>' + title + info[i] + '</h1>');
+        }
+        
+        
+
+    </script>
+</body>
+</html>

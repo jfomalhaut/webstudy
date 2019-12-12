@@ -1,0 +1,34 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+    <script>
+        var setTime;
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        function start() {
+            setTime = setTimeout(function(){
+                alert('확인');
+            }, 2000);
+        }
+
+        function end() {
+            clearTimeout(setTime);
+        }
+    </script>
+</body>
+</html>

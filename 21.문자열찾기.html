@@ -7,6 +7,9 @@
 </head>
 <body>
     <input type="text" id="txt"><br><br>
+    <input type="text" id="txt2"><br><br>
+    <input type="text" id="txt3"><br><br>
+    <input type="text" id="txt4"><br><br>
 
     <button id="count">
         <h1>갯수구하기</h1>
@@ -21,26 +24,26 @@
     <h1>결과 : <span id="result"></span></h1>
     <script>
         document.getElementById('count').onclick = function(){
-            var txt = getTxt();
+            var txt = getTxt('txt');
             var length = txt.length;
             output(length);
         }
 
         document.getElementById('find').onclick = function(){
-            var txt = getTxt();
+            var txt = getTxt('txt');
             var result = txt.indexOf("D");
             output(result);
         }
         
         document.getElementById('findLastD').onclick = function(){
-            var txt = getTxt();
+            var txt = getTxt('txt');
             var result = txt.lastIndexOf("D");
             output(result);
         }
 
          // txt라는 아이디를 가진 태그의 값을 불러주는 용도
-         function getTxt(){
-            var txt = document.getElementById('txt').value;
+         function getTxt(_id){ // _id : txt
+            var txt = document.getElementById(_id).value;
             return txt;
         }
 

@@ -1,0 +1,65 @@
+<html>
+<head>
+    <style>
+        #result{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    </style>
+</head>
+<body>
+    <div class="item">
+        <img src="" alt="">
+        <div class="name"></div>
+        <div class="price"></div>
+        <div class="date"></div>
+    </div>
+    <div id="result"></div>
+    <script>
+        // 키와 값
+        var arr = [
+            {
+                type: "bottom",
+                name: "바지1",
+                price: 20000,
+                src: "bottom.jpg"
+            },
+            {
+                type: "bottom",
+                name: "바지2",
+                price: 20000,
+                src: "bottom2.jpg"
+            },
+            {
+                type: "bottom",
+                name: "바지3",
+                price: 20000,
+                src: "bottom3.jpg"
+            },
+            {
+                type: "bottom",
+                name: "바지4",
+                price: 20000,
+                src: "bottom4.jpg"
+            }
+        ]; // json
+
+        var item;
+        var text = "";
+
+        for(var i = 0; i<arr.length; i++){
+            item = 
+                '<div class = "item">'+
+                    '<h1>' + arr[i].type + '</h1>'+
+                    '<h1>' + arr[i].name + '</h1>'+
+                    '<h1>' + arr[i].price + '</h1>'+
+                    '<img src ="' + arr[i].src + '">' +
+                '</div>';
+            text = text + item; // 누적으로 쌓는 방식
+        }
+        document.getElementById('result').innerHTML = text;
+
+
+    </script>
+</body>
+</html>

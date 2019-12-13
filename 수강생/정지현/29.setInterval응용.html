@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+
+    <script>
+        /*
+            문제 
+            %와 interval 함수를 이용해서 1초마다 색깔이 빨강/파랑으로 바뀌게 해보시오
+        
+        */
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        var count = 0;
+        var setout;
+        var on = false;
+        
+        function start(){
+            if(on){
+                return;
+            }
+            on = true;
+
+            setout = setInterval(function(){
+                        count++;
+                        if(count % 2 == 0){
+                            document.getElementById('box').style.backgroundColor = "plum";
+                        }
+                        else if(count % 2 == 1){
+                            document.getElementById('box').style.backgroundColor = "yellowgreen";
+                        }
+                    }, 1000);
+        }
+        function end(){
+            clearInterval(setout);
+            on = false;
+        }
+    </script>
+</body>
+</html>

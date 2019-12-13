@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="watch"></div>
+    <script>
+        /*
+            1. setInterval 함수
+            2. date 객체(날짜)
+            3. 클릭이벤트 + 함수
+
+            해당 사항들을 응용해서
+
+            2019-12-12 21:59:00
+
+            보기와 같은 형태로 1초마다 시간이 갱신되도록
+            만들어보세요.
+        
+        */
+        var co = 0;
+        function to(_num){
+            if(_num < 10){
+                _num = "0" + _num;
+            }
+            return _num;
+        }
+
+        setInterval(function(){
+            co++;
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = to(today.getMonth()+1);
+            var date = to(today.getDate());
+            var day = today.getDay();
+            var hour = to(today.getHours());
+            var min = to(today.getMinutes());
+            var sec = to(today.getSeconds());
+            
+            var result = `${year}년 ${month}월  ${date}일  ${hour}:${min}:${sec}`;
+            document.getElementById('watch').innerHTML = result;
+            
+        }, 1000);
+    </script>
+</body>
+</html>

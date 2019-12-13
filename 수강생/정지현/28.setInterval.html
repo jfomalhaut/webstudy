@@ -22,8 +22,10 @@
     </button>
 
     <script>
-        
+        var num = 0;
         var setIn;
+        var on = false;
+        
         document.getElementById('start').onclick = function(){
             start();
         }
@@ -31,11 +33,17 @@
             end();
         }
 
-        var num = 0;
         function start(){
+            if(on === true){
+                return;
+            }
+            on = true;  
+
+           // clearInterval(setIn);
             setIn = setInterval(function(){
                         num++;
-                        console.log(num);
+                        // console.log(num);
+                        document.getElementById('result').innerHTML = num;
                     }, 1000);
         }
 

@@ -1,0 +1,33 @@
+<html>
+<body>
+    <script>
+        var width = screen.width;
+        var height = screen.height;
+        console.log(width);
+        console.log(height);
+        
+        // 가로 길이
+        var offsetWidth = document.body.offsetWidth;
+        var scrollWidth = document.body.scrollWidth; // 문서 전체 크기
+        var clientWidth = document.body.clientWidth; // 창의 크기
+        // 세로 길이
+        var offsetHeight = document.body.offsetHeight;
+        var scrollHeight = document.body.scrollHeight; // 문서 전체 크기
+        var clientHeight = document.body.clientHeight; // 창의 크기
+        // inner
+        var innerWidth = window.innerWidth; //브라우저 윈도우 두께를 제외한 실질적 가로 길이
+        var innerHeight = window.innerHeight; //브라우저 윈도우 두께를 제외한 실질적 세로 길이
+        // outer
+        var outerWidth = window.outerWidth; // 윈도우 두깨 포함 전체 가로 길이
+        var outerHeight = window.outerHeight;  // 윈도우 두깨 포함 전체 세로 길이
+
+        console.log("offset 가로", offsetWidth);
+        console.log("offset 세로", offsetHeight);
+        console.log("scroll 가로", scrollWidth);
+        console.log("scroll 세로", scrollHeight);
+        console.log("client 가로", clientWidth);
+        console.log("client 세로", clientHeight);
+
+    </script>
+</body>
+</html>

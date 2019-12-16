@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>시간 : <span id="result" ></spaidn></h1>
+    <button id="start">버튼</button>
+    <script>
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+
+        var interval;
+        var on = true;
+
+        function start(){
+            if(!on){
+                return
+            }
+            on = false;
+            interval = setInterval(function(){
+                    var to = new Date();
+                    var year = to.getFullYear();
+                    var month = zero(to.getMonth()+1);
+                    var date = zero(to.getDate());
+                    var hour = zero(to.getHours());
+                    var min = zero(to.getMinutes());
+                    var sec = zero(to.getSeconds());
+                    var result = `${year}-${month}-${date} ${hour}:${min}:${sec}`;
+
+                console.log(result);
+                document.getElementById('result').innerHTML = result;
+            
+            },1000)
+        }
+
+        function zero(_val){
+            if(_val < 10){
+                _val = "0"+_val;
+            }
+            return _val;
+        }
+    </script>
+</body>
+</html>

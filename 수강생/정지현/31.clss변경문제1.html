@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jQuery.com/jQuery-latest.min.js"></script>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+            margin: 5px;
+            opacity: 1;
+            transition: .4s;
+        }
+        .fadeOut{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+
+        /*  
+
+            문제1
+            박스를 하나 만들고 addClass 와 removeClass를 이용해
+            1초마다 opcity가 0~1로 바뀌게 만들어보세요,
+
+        */
+        $(document).ready(function(){
+
+            var count = 0;
+            setInterval(function(){
+                count++;
+                if(count % 2 === 0){
+                    $('.box').addClass('fadeOut');
+                }
+                else if(count % 2 === 1){
+                    $('.box').removeClass('fadeOut');
+                }
+            }, 1000);
+
+        });
+    </script>
+</body>
+</html>

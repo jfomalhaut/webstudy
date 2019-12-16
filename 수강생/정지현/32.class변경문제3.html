@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100px;
+            background: white;
+            color: #000;
+            border-bottom: 1px solid lightgray; 
+        }
+        .black{
+            background: black !important;
+        }
+        .black h1{
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HEADER</h1>
+    </header>
+    <button id="btn">검정색</button>
+    <button id="btn2">흰색</button>
+    <script>
+        /*
+            문제3
+            헤더를 만드는데 
+            이 헤더는 흰 배경에 검은 글씨를 가지고있습니다.
+            버튼을 클릭하면 흰버젼/어두은 버전으로 바뀌게 해보세요
+            어두운버전은 검은배경에 흰 글씨입니다.
+        */
+        $(document).ready(function(){
+            $(document).on('click', '#btn' , function(){
+                $('header').addClass('black').removeClass('white');
+            });
+            $(document).on('click', '#btn2' , function(){
+                $('header').addClass('white').removeClass('black');
+            });
+        });
+    </script>
+</body>
+</html>

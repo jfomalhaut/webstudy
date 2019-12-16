@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jQuery.com/jQuery-latest.min.js"></script>
+
+    <style>
+        #box, #box2{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+            font-size: 30px;
+        }
+        .yellowgreen{
+            background: yellowgreen !important;
+        }
+        .orange{
+            background: orange !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">A</div>
+    <div id="box2">B</div>
+
+    <button id="btn1">
+        <h1>A버튼</h1>
+    </button>
+    <button id="btn2">
+        <h1>B버튼</h1>
+    </button>
+
+    <script>
+
+        /*  
+
+            문제2.
+            박스 A와B버튼을 만들고 A와B의 박스를 만들고
+            버튼 A를 누르면 A만보이고
+            버튼 B를 누르면 B만 보이게 하라
+        */
+        $(document).ready(function(){
+            $(document).on('click', '#btn1', function(){
+                $('#box').addClass('yellowgreen');
+                $('#box2').removeClass();
+            });
+            $(document).on('click', '#btn2', function(){
+                $('#box2').addClass('orange');
+                $('#box').removeClass();
+            });
+
+        });
+    </script>
+</body>
+</html>

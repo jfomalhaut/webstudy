@@ -1,0 +1,35 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: dodgerblue;
+        }
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div><br>
+    <button id="view">
+        <h1>보이기</h1>
+    </button>
+    <button id="hide">
+        <h1>안보이기</h1>
+    </button>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#view', function(){
+                $('#box').removeClass('hide');
+            });
+            
+            $(document).on('click', '#hide', function(){
+                $('#box').addClass('hide');
+            });
+        })
+    </script>
+</body>
+</html>

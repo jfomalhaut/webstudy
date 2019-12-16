@@ -1,0 +1,48 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #boxA, #boxB{
+            width: 200px; height: 200px;
+            background: gray;
+            justify-content: center;
+            align-items: center;
+            color: white; font-size: 50px;
+            display: none;
+        }
+        .active{
+            display: inline-flex !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxA" class="active">A</div>
+    <div id="boxB">B</div>
+    <br>
+    <br>
+    <button id="btnA">
+        <h1>박스A</h1>
+    </button>
+    <button id="btnB">
+        <h1>박스B</h1>
+    </button>
+    <script>
+        // 문제1
+        // 박스 A,B와 버튼 a,b 각각 두 개를 만들고
+        // 버튼 a를 누르면 A만 보이고
+        // 버튼 b를 누르면 B만 보이게 코딩해보세요.
+        // (addClass와 removeClass 사용)
+
+        $(document).ready(function(){
+            $(document).on('click', '#btnA', function(){
+                $('#boxA').addClass('active');
+                $('#boxB').removeClass('active');
+            });
+            $(document).on('click', '#btnB', function(){
+                $('#boxB').addClass('active');
+                $('#boxA').removeClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

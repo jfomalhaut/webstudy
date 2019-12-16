@@ -1,0 +1,33 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+        }
+        .red{
+            background: red !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="box" class="abc1 abc2 abc3"></div>
+    <button id="push">
+        <h1>넣기</h1>
+    </button>
+    <button id="sub">
+        <h1>빼기</h1>
+    </button>
+    <script>
+        $(document).on('click','#push', function(){
+            $('#box').addClass('red');    
+        });
+        
+        $(document).on('click','#sub', function(){
+            $('#box').removeClass();    
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+
+        // 대소문자를 정확히 알수 없을 경우,
+        var mobile = "iOS";
+        var mobile2 = "Android";
+
+        var result1 = trans(mobile);
+        var result2 = trans2(mobile2);
+
+        console.log(result1, result2);
+
+        if(mobile === 'ios'){
+            alert('아이폰입니다');
+        }else if(mobile2 === 'ANDROID'){
+            alert('안드로이드');
+        }
+        
+        function trans(_val){
+            return _val.toLowerCase();
+        }
+        function trans2(_val){
+            return _val.toUpperCase();
+        }
+
+    </script>
+</body>
+</html>

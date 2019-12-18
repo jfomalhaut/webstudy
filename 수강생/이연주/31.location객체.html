@@ -1,0 +1,31 @@
+<html>
+<head>
+
+</head>
+<body>
+    <a href="http://naver.com">네이버</a>
+    <!-- 위치를 이동시키는 태그로, a태그를 대신한다 -->
+    <button id="naver">
+        naver
+    </button>
+    <button id="google">
+        google
+    </button>
+    <button id="reload">
+        새로고침
+    </button>
+    
+    <script>
+        document.getElementById('naver').onclick = function(){
+            location.href = "http://naver.com";
+        }
+        document.getElementById('google').onclick = function(){
+            location.href = "http://google.com";
+        }
+        document.getElementById('reload').onclick = function(){
+            location.reload();
+        }
+    
+    </script>
+</body>
+</html>

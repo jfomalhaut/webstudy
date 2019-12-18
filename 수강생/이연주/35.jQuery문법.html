@@ -1,0 +1,75 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+
+    <!-- jQuery에 대해.
+    javascript가 길고 짜증나서 단순하게 만든것
+
+    jQuery를 사용하려면
+    jQuery는 라이브러리
+    따라서 외부에서 무언가를 갖다가 붙여놓아야 사용 가능
+
+    jQuery는 코딩의 개념 이해에 도움이 된다
+    => 그러나, 다시 javascript를 배워야한다 (노마드코더, 생활코딩)
+
+    지금부터
+    jQuery를 이용한 코딩, 문법, 코딩 -->
+
+    <h1>제이쿼리</h1>
+    <p>제이쿼리 설명</p>
+    <h1 id="txt">제이쿼리입니다</h1>
+    <h1 class="txt1">제이쿼리입니다!?</h1>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <div class="txt2">
+        <div>
+            <h1>HTML</h1>
+            <h2>CSS</h2>
+        </div>
+    </div>
+    <input type="text" id="txt_box">
+    <input type="button" value="focus" id="focus">
+
+    <select>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+        <option>jQuery</option>
+    </select>
+
+    <script>
+        
+        $(document).ready(function(){
+            //전체
+            $('*').css('color', 'blue');
+            //태그
+            $('h1').css('color', 'red');
+            $('p').css('color', 'green');
+            //아이디
+            $('#txt').css('color', 'skyblue');
+            //클래스
+            $('.txt1').css('color', 'gray');
+            //자식선택자
+            $('ul > li').css('color', 'tomato');
+            $('ul > li:nth-child(2)').css('color, 'black');
+
+            //속성선택자
+            $('input[type="txt"]').css('color', 'orange');
+            $('input[type="txt"]')
+            
+            //dbclick
+            $(document).on('click', '#focus', function(){
+                $('#txt_box').focus();
+            })
+
+            $(document).on('change', 'select')
+        });
+
+    </script>
+</body>
+</html>

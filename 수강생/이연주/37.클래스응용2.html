@@ -1,0 +1,42 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #a_box{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+        #b_box{
+            width: 200px;
+            height: 200px;
+            background: blueviolet;
+        }
+        .a{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="a_box">A</div>
+    <div id="b_box">B</div>
+    <button id="a_btn">A</button>
+    <button id="b_btn">B</button>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#a_btn',function(){
+                $('#b_box').addClass('a');
+                $('#a_box').removeClass();
+            });
+            
+            $(document).on('click', '#b_btn',function(){
+                $('#a_box').addClass('a');
+                $('#b_box').removeClass();
+            });
+        });
+       
+    </script>
+    
+</body>
+</html>

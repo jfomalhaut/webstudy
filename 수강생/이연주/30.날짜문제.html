@@ -1,0 +1,26 @@
+<html>
+<head>
+
+</head>
+<body>
+    <p id="total">결과 : <span id="result"></span></p>
+    <button id="btn">클릭</button>
+
+    <script>
+        var to = new Date();
+        var year = 
+
+        document.getElementById('btn').onclick = function(){
+            btn();
+        }
+
+        function btn(){
+            setInterval(function(){
+                num++;
+                document.getElementById('result').innerHTML = num;
+            }, 1000);
+        }
+    
+    </script>
+</body>
+</html>

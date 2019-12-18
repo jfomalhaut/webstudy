@@ -1,0 +1,44 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+        .red{
+            background: red;
+        }
+        .remove{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="change">
+        change
+    </button>
+
+    <script>
+        $(document).ready(function(){
+            var num = 0;
+            var interval;
+
+            interval = setInterval(function(){
+                num++;
+                result = num%2;
+                if(result === 1){
+                    
+                }
+            }, 1000);
+
+            $(document).on('click', '#change', function(){
+                $('#box').addClass('remove');
+            });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+    <style>
+        #box{
+            width: 200px;;
+            height: 200px;
+            border: 1px solid;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<bdoy>
+    <div id="box"></div>
+    <button id="start">시작</button>
+    <button id="end">종료</button>
+
+    <script>
+        //%와 interval 함수를 이용해서 1초마다 색깔이 빨강/파랑으로 바뀌게 해보세요
+        var count = 0;
+        var interval;
+        var result;
+        var on = false;
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        function start(){
+            if(on){
+                reture;
+            }
+            on = true;
+
+            interval = setInterval(function(){
+                result = count%2;
+                count++;
+                if(result === 1){
+                    document.getElementById('box').style.backgroundColor = 'red';
+                }else if(result === 0){
+                    document.getElementById('box').style.backgroundColor = 'blue';
+                }
+            },1000);
+        }
+
+        function end(){
+            on = false;
+            clearInterval(interval);
+        }
+        
+        //interval이라는 주요 기능부터 만들고 버튼에 적용하고, 한번작동하게 적용하ㅏ고...차근차근 넣기
+    </script>
+</bdoy>
+</html>

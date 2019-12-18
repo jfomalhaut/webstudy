@@ -1,0 +1,45 @@
+<html>
+<head>
+
+</head>
+<bdoy>
+
+    <h1>결과 : <span id="result"></span></h1>
+    <button id="start">시작</button>
+    <button id="end">종료</button>
+
+    <script>
+        var num = 0;
+        var interval;
+        var on = false; //true : interval 동작중, flase : interval 비동작
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        function start(){
+            if(on === true){ //on이라고만 써도 된다/ !on은 false
+                return; //return을 하면 아래 코드는 작동하지 않는다.
+            }
+            on = true; //시작버튼 여러번 눌러도 한번 작동하도록 방법1 추천!!
+
+            // clearInterval(interval); //시작버튼 여러번 눌러도 한번 작동하도록 방법2 
+
+            interval = setInterval(function(){
+                num++;
+                document.getElementById('result').innerHTML = num;
+        }, 500); //0.5마다 실행중, 카운팅중
+        }
+
+        function end(){
+            on = false;//시작버튼 여러번 눌러도 한번 작동하도록 방법1
+
+            clearInterval(interval);
+        }
+
+    </script>
+</bdoy>
+</html>

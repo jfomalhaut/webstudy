@@ -1,0 +1,32 @@
+<html>
+<head>
+    
+</head>
+<bdoy>
+
+    <button id="start">시작</button>
+    <button id="end">종료</button>
+
+
+    <script>
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        function start(){
+            setTime = setTimeout(function(){
+                alert('확인');
+            }, 2000); //2초후에 작동, 주문하기 할때 잠깐의 로딩타임
+        }
+
+        function end(){
+            clearTimeout(setTime);
+        }
+
+    </script>
+</bdoy>
+</html>

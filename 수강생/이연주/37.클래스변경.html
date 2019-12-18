@@ -1,0 +1,36 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+        }
+        .red{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="push">
+        넣기
+    </button>
+    <button id="sub">
+        빼기
+    </button>
+
+    <script>
+        $(document).on('click','#push',function(){
+            $('#box').addClass('red');
+        });
+        $(document).on('click','#sub',function(){
+            $('#box').removeClass('red');
+            //removeClass() 안을 비울경우 여러클래스 일괄 삭제
+        });
+
+        //헤더가 맨위에는 붙어있다가, 밑으로 내리면 fixed 될경우 등
+    </script>
+</body>
+</html>

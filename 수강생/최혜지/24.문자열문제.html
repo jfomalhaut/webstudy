@@ -1,0 +1,46 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button id="btn1">
+        <h1>문제1</h1>
+    </button>
+    <button id="btn2">
+        <h1>문제2</h1>
+    </button>
+    <button id="btn3">
+        <h1>문제3</h1>
+    </button>
+    <h1>결과 :<span id="result"></span></h1>
+    <script>
+        var url = "www.naver.com";
+        var str = "환영합니다 고객님!"
+
+        // 문제1 : naver만 추출해보기
+        // 문제2 : 나머지 다 떼고 naver를 네이버(한글)로 변경해서 출력하기
+        // 문제3 : str에서 고객님을 사랑하는 고객님으로 바꿔서 출력하기
+
+        document.getElementById('btn1').onclick = function(){
+            var url = "www.naver.com";
+            var result = url.slice(4,9);
+            output(result);
+        }
+        document.getElementById('btn2').onclick = function(){
+            var url = "www.naver.com";
+            var result = url.slice(4,9);
+            result = result.replace("naver", "네이버");
+            output(result);
+        }
+        document.getElementById('btn3').onclick = function(){
+            var str = "환영합니다 고객님!";
+            var result = str.replace("고객님", "사랑하는 고객님");
+            output(result);
+        }
+
+        function output(_result){
+            document.getElementById('result').innerHTML = _result;
+        }
+    </script>
+</body>
+</html>

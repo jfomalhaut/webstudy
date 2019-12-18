@@ -1,0 +1,38 @@
+<html>
+<head>
+
+</head>
+<body>
+
+    <button onclick="start()">
+        <h1>시작</h1>
+    </button>
+    <button onclick="end()">
+        <h1>종료</h1>
+    </button>
+    <script>
+
+        var fax = "오늘 오후 10시 회식이랍니다"; // 전역변수 (바깥에 선언된 변수)
+        var fax2 = "복장은 정장입니다.";
+
+
+        // value = 매개변수 라고 한다 (함수 옆에 붙어서 온다/선언 할 필요 없다)
+        sales(fax, fax2);
+        function sales(_value, _value2){
+            var open2 = 10; // 지역변수 (함수 안에서 선언된 변수)
+            console.log('영업부');
+            console.log(_value);
+            console.log(_value2);
+        }
+
+        function start(){
+            console.log('start');
+        }
+
+        function end(){
+            console.log('end');
+        }
+        
+    </script>
+</body>
+</html>

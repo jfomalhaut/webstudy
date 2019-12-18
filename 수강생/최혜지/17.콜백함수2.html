@@ -1,0 +1,57 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        var yoils = ['일', '월', '화', '수', '목', '금', '토'];
+        var date = new Date();
+        console.log(date);
+
+        // 요일 구하기
+        var yoil = date.getDay();
+        var result = yoils[yoil];
+        var today = getDay(yoil);
+
+        // console.log(result);
+        console.log("오늘은 무슨 요일? "+ today);
+
+        function getDay(_yoil){
+            return yoils[_yoil] + '요일';
+        }
+
+        // 예2
+
+        var pig = "돼지";
+        var afterPig = cook(pig);
+        console.log(afterPig);
+
+        function cook(_val){
+            return "가공된" + _val;
+       }
+
+       // 문제1
+       // 어떤 문장이든 끝 자리에 .마침표가 붙는
+       // 콜백함수를 만들어보세요.
+
+       var sen = "문장";
+       var sen2 = "문장2";
+       var sen3 = "문장3";
+
+       var afterSen = mark(sen);
+       var afterSen2 = mark(sen2);
+       var afterSen3 = mark(sen3);
+
+       console.log(afterSen, afterSen2, afterSen3);
+
+       function mark(_val){
+           return _val +".";
+       }
+
+       // 문제2
+       // 배열을 만드는데 ['일', '월', '화', '수', '목', '금', '토']
+       // 콜백함수와 for문을 써서 일요일 월요일 ... 토요일
+       // 이 출력되게 해보세요.
+    </script>
+</body>
+</html>

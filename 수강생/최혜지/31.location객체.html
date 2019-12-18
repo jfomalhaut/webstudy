@@ -1,0 +1,28 @@
+<html>
+<head>
+
+</head>
+<body>
+    <button id="naver">
+        <h1>naver</h1>
+    </button>
+    <button id="google">
+        <h1>google</h1>
+    </button>
+    <button id="reload">
+        <h1>새로고침</h1>
+    </button>
+    <script>
+        //페이지 간 이동이 가능하다
+        document.getElementById('naver').onclick = function(){
+            location.href = "https://naver.com";
+        }
+        document.getElementById('google').onclick = function(){
+            location.href = "https://google.com";
+        }
+        document.getElementById('reload').onclick = function(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{
+            width: 100px; height: 100px; background: tomato;
+            line-height: 100px;
+            color: white;
+            text-align: center;
+        }
+        .op{ 
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 문제1.
+        박스 A,B와 버튼 a,b를 각각 두 개를 만들고
+        버튼 a를 누르면 A만 보이고
+        버튼 b를 누르면 B만 보이게 코딩해보세요.
+        (addClass와 removeClass 사용) -->
+        
+        
+    <!-- 문제2.
+    박스를 하나 만들고 addClass와 removeClass를 이용해
+    1초마다 opacity가 0~1로 바뀌게 만들어보세요. -->
+
+
+
+    <!-- 문제1 -->
+    <div id="A" class="box">A</div>
+    <div id="B" class="box">B</div><br>
+    <button id="Abtn">
+        a버튼
+    </button>
+    <button id="Bbtn">
+        b버튼
+    </button>
+    <script>
+
+        
+        $(document).on('click', '#Abtn', function(){
+            $('#A').removeClass('op');
+            $('#B').addClass('op');
+        });
+        $(document).on('click', '#Bbtn', function(){
+            $('#A').addClass('op');
+            $('#B').removeClass('op');
+        });
+        
+    </script>
+</body>
+</html>

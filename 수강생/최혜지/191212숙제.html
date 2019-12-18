@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <button id="push">
+        PUSH
+    </button>
+    <h1>결과: <span id="result2"></span></h1>
+
+    <h1>모르겠어요...</h1>
+    <script>
+        var to = new Date();
+        var year = to.getFullYear();
+        var month = to.getMonth()+1;
+        var date = to.getDate();
+
+        var hour = zero(to.getHours());
+        var min = zero(to.getMinutes());
+        var sec = zero(to.getSeconds());
+
+        var result = `${year}-${month}-${date} ${hour}:${min}:${sec}`;
+        console.log(result);
+
+        document.getElementById('push').onclick = function(){
+            push();
+        }
+
+        function zero(_val){
+            if(_val < 10){
+                _val = "0" + _val;
+            }
+            return _val;
+        }
+        function push(){
+            interval = setInterval(function(){
+                result++;
+                document.getElementById('result2').innerHTML = result;
+            },1000);
+        }
+
+    </script>
+</body>
+</html>

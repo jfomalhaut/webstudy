@@ -1,0 +1,44 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        // 수학 점수를 입력 받아서
+        // 90점 이상 : 수
+        // 80점 이상 : 우
+        // 70점 이상 : 미
+        // 60점 이상 : 양
+        // 그 이하 : 가
+        // 문자열, 100 이상, 100 이하
+
+        var txt = prompt("수학 점수를 입력해!");
+        txt = Number(txt);
+
+        if(txt > 100){
+            alert("범위가 초과되었습니다.");
+        }
+        else if(txt > 89){
+            alert("수");
+        }
+        else if(txt > 79){
+            alert("우");
+        }
+        else if(txt > 69){
+            alert("미");
+        }
+        else if(txt > 59){
+            alert("양");
+        }
+        else if(txt >= 0){
+            alert("가");
+        }
+        else if(txt < 0){
+            alert("범위가 초과되었습니다.");
+        }
+        else{
+            alert("숫자가 아닙니다.");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        var name = prompt("이름을 써라");
+        var score1 = prompt("국어 점수를 써라")*1;
+        var score2 = prompt("수학 점수를 써라")*1;
+        var score3 = prompt("영어 점수를 써라")*1;
+
+        // var round = Math.round(score1);
+        // round = Math.round(score2);
+        // round = Math.round(score3);
+
+        var total = score1 + score2 + score3;
+        var avg = Math.round(total / 3);
+        var grade;
+
+        // or = ||
+        // and = &&
+        if(avg > 100 || avg < 0){
+            console.log("범위초과");
+        }
+        else if(avg > 89){
+            grade ="수";
+        }
+        else if(avg > 79){
+            grade ="우";
+        }
+        else if(avg > 69){
+            grade ="미";
+        }
+        else if(avg > 59){
+            grade ="양";
+        }
+        else if(avg >= 0){
+            grade ="가";
+        }
+        else{
+            console.log("숫자가 아니자나!");
+        }
+
+        console.log(grade);
+        var txt = name + "의 점수 총합은" + total + "평균 점수는 " + avg +
+        "점, 등급은 " +grade;
+    
+        console.log(txt);
+    </script>
+</body>
+</html>

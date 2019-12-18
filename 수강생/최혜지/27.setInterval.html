@@ -1,0 +1,48 @@
+<html>
+<head>
+
+</head>
+<body>
+    <h1>결과 : <span id="result"></span></h1>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+    <script>
+        // 500 = 0.5초
+        var num = 0;
+        var interval;
+        var on = false; // true= interval 동작중, false=interval 비동작
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+
+        // if(on) = if(on === ture)
+        // if(!on) = if(on ===false)
+        function start(){
+            if(on === true){
+                return; //return을 하면 아래 코드는 작동하지 않는다.
+            }
+            on = true;
+            // clearInterval(interval)
+            interval = setInterval(function(){
+                num++;
+                document.getElementById('result').innerHTML = num;
+            },500);
+        }
+
+        function end(){
+            on = false;
+            clearIneterval(interval);
+        }            
+    </script>
+</body>
+</html>

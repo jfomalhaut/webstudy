@@ -1,0 +1,29 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        var mobile = "iOS";
+        var mobile2 = "Android";
+
+        var result1 = trans(mobile);
+        var result2 = trans(mobile2);
+
+        console.log(result1, result2);
+
+        if(result1 === 'ios'){
+            alert('아이폰입니다');
+        }
+        else if(result2 === 'ANDROID'){
+            alert('안드로이드입니다');
+        }
+        function trans(_val){
+            return _val = _val.toLowerCase();
+        }
+        function trans(_val){
+            return _val = _val.toUpperCase();
+        }
+    </script>
+</body>
+</html>

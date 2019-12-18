@@ -1,0 +1,81 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{cursor: pointer;}
+        #box{
+            width: 100px; height: 100px; background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <h3 id="down">누르다</h3>
+    <h3 id="up">놓다</h3>
+    <h3 id="mouse">마우스</h3>
+    <h3 id="over">올리다</h3>
+    <h3 id="out">벗어나다</h3>
+    <h3 id="enter">마우스 들어오다</h3>
+    <h3 id="leave">마우스 떠나다</h3>
+    <h3 id="total">종합</h3>
+    txt1: <input type="text" id="txt1"><br>
+    input: <input type="text" id="in"><br>
+    output: <input type="text" id="out2"><br>
+    <script>
+        $(document).ready(function(){
+            $(window).resize(function(){
+                console.log('screen width: '+screen.width);
+                console.log('screen height: '+screen.height);
+            })
+
+            $(document).on('dblclick', '#box', function(){
+                $('$box').css('backgroundColor', 'blue');
+            })
+            $(document).on('mousedown', '#down', function(){
+                console.log('눌렀습니다');
+            })
+            $(document).on('mouseup', '#up', function(){
+                console.log('놨습니다');
+            })
+            $(document).on('mousemove', '#mouse', function(){
+                console.log('move!');
+            })
+            $(document).on('mouseover', '#over', function(){
+                console.log('마우스 over!');
+            })
+            $(document).on('mouseout', '#out', function(){
+                console.log('마우스 out!');
+            })
+            $(document).on('mouseenter', '#enter', function(){
+                console.log('마우스 enter!');
+            })
+            $(document).on('mouseleave', '#leave', function(){
+                console.log('마우스 leave!');
+            })
+            $(document).on({
+                mouseover: function(){
+                    console.log('over');
+                },
+                mouseout: function(){
+                    console.log('out');
+                },
+                click: function(){
+                    alert('click!');
+                }
+            },'#total')
+        })
+
+        $(document).on('keydown', '#txt', function(){
+            console.log('keydown');
+        });
+        $(document).on('keyup', '#txt', function(){
+            console.log('keyup');
+        });
+        $(document).on('keydown', '#in', function(){
+            var value = $(this).val();
+            console.log(value);
+            $('#out2').val(value);
+        });
+   </script>
+</body>
+</html>

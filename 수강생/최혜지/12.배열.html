@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+</head>
+<body>
+    <script>
+        var str = "돼지"; // 문자열 string
+        var num = 1; // 숫자형 number
+        var bool = true; // 참거짓 boolean
+        var arr = [1,2,3];
+        var arr3 = [true, 1, '민수'];
+
+        // console.log(typeof(str));
+        // console.log(typeof(arr));
+        // console.log(typeof(arr2));
+        // console.log(typeof(arr3));
+
+        
+        var class2 = ['철수', '영희', '민수'];
+        // 철수 : 0
+        // 영희 : 1
+        // 민수 : 2
+
+        console.log(class2[1]);
+
+
+        for(var i = 0; i<3; i++){
+            console.log(class2[i]);
+            document.write('<h1>'+class2[i]+'</h1>');
+        }
+
+        //문제
+
+        var man = ['홍길동', 20, '을국도', '도적'];
+        // 이름/나이/사는곳/직업
+        var length = man.length; // length를 쓰면 배열이 알아서 들어감(자동)
+        var label;
+
+        for(var i = 0; i<length; i++){
+            if(i === 0){
+                label = '이름';
+            }
+            else if(i === 1){
+                label = '나이';
+            }
+            else if(i === 2){
+                label = '사는곳';
+            }
+            else if(i === 3){
+                lable = '직업';
+            }
+
+            console.log(label + " : " + man[i]);
+        }
+
+    </script>
+</body>
+</html>

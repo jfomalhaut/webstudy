@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background: tomato;
+            opacity: 1;
+            transition: .2s;
+        }
+        .fadeOut{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 문제2.
+    박스를 하나 만들고 addClass와 removeClass를 이용해
+    1초마다 opacity가 0~1로 바뀌게 만들어보세요. -->
+    <div class="box"></div>
+    <script>
+        $(document).ready(function(){
+            var count = 0;
+            setInterval(function(){
+                count++;
+                if(count%2 === 1){
+                    // 홀수
+                    $('.box').addClass('fadeOut');
+                }else{
+                    // 짝수
+                    $('.box').removeClass('fadeOut');
+                }
+            },1000);
+        });
+    </script>
+</body>
+
+</html>

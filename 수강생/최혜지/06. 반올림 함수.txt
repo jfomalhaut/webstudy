@@ -1,0 +1,14 @@
+배워야 할 것
+
+1. 나누는 것 ex) 100 / 3
+2. 소수점으로 나올 경우
+->Math.round(변수)
+1) round : 반올림
+2) ceil : 올림
+3) floor : 버림
+
+
+ex)
+var num1 = 100/3;
+var round = Math.round(num1);
+console.log(round);

@@ -1,0 +1,55 @@
+<html>
+<head>
+    <style>
+        #box{width: 200px; height: 200px; border: 1px solid; margin-bottom: 20px;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+    <script>
+        var count = 0;
+        var interval;
+        var on = false;
+        // document.getElementById('box').style.backgroundColor = 'red';
+        // var result = count%2;
+
+        // 문제
+        // %와 inverval 함수를 이용해서 
+        // 1초마다 색깔이 빨강/파랑으로 바뀌게 해보세요.
+
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+        function start(){
+            if(on){
+                return;
+            }
+            on = true;
+            interval = setInterval(function(){
+                count++;
+                if(count%2 === 1){
+                    document.getElementById('box').style.backgroundColor = 'red';
+                }
+                else if(count%2 !== 1){
+                    document.getElementById('box').style.backgroundColor = 'blue';
+                }
+            },1000);
+        }
+
+        function end(){
+            on = false;
+            clearInterval(interval);
+        }
+    </script>
+</body>
+</html>

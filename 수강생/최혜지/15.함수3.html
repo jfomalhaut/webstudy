@@ -1,0 +1,55 @@
+<html>
+<head>
+
+</head>
+<body>
+
+    <button onclick="dom()">
+        <h1>구매</h1>
+    </button>
+    <script>
+
+        one();
+
+        function one(){
+            two('아기');
+        }
+
+        function two(_val){
+            var text = _val + '돼지';
+            three(text);
+        }
+
+        function three(_val){
+            var text = _val + '삼형제';
+            console.log(text);
+        }
+
+
+        // 문제 : 소매상은 120%, 마켓 120%이다
+        // 최종 소비자가 얼마나 구매하게되는지 출력
+        // document.write로 출력
+
+        // dom();
+
+        function dom(){
+            var price = 1000;
+            som(price);
+        }
+
+        function som(_val){
+            var price = _val * 1.2;
+            market(price);
+        }
+
+        function market(_val){
+            var price = _val * 1.2;
+            var result = price + '원 입니다.';
+            document.write(result);
+        }
+        
+
+
+    </script>
+</body>
+</html>

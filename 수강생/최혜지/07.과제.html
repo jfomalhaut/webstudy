@@ -1,0 +1,57 @@
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        // 문제1
+        var num1 = 100;
+        var num2 = 200;
+
+        var result = num1 + num2
+        console.log(result);
+
+        // 문제2
+        var str1 = "아기";
+        var str2 = "돼지";
+        var str3 = "삼형제";
+
+        var result2 = str1 + " " + str2 + " " + str3;
+        console.log(result2);
+
+        // 문제3
+        var result3 = "";
+        result3 = result3 + str1;
+        result3 = result3 + " ";
+        result3 = result3 + str2;
+        result3 = result3 + " ";
+        result3 = result3 + str3;
+
+        console.log(result3);
+
+        // 문제4
+        var txt1 = prompt("나이를 입력해!");
+        txt1 = Number(txt1);
+        var year = 2019;
+
+        var result4 = year - txt1 + 1 + "년도에 태어났군";
+        console.log(result4);
+
+        // 문제5
+        var txt2 = prompt("숫자를 입력해!");
+        // var txt2 = prompt("숫자를 입력해!")*1; 이렇게 해도 됨
+        txt2 = Number(txt2);
+        var result5 = txt2%2;
+
+        if(result5 === 1){
+            console.log("홀수");
+        }
+        else if(result5 !== 1){
+            console.log("짝수");
+        }
+        else{
+            console.log("숫자가 아님");
+        }
+    </script>
+</body>
+</html>

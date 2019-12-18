@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+
+    <style>
+    .box{
+        width: 200px;
+        height: 200px;
+        background:red;
+        opacity: 0;
+        transition: .2s;
+    }
+    .interbox{
+        width: 200px;
+        height: 200px;
+        background:red;
+        opacity: 1;
+    }
+
+
+    .box2{
+        width: 200px;
+        height: 200px;
+        background: tomato;
+        display: none;
+        float: left;
+    }
+    .box3{
+        width: 200px;
+        height: 200px;
+        float: left;
+        background: violet;
+        display: none;
+    }
+    .show{
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+
+        var count = 1;
+        var interval;
+        interval = setInterval(function(){
+            count++;
+           if(count%2===1){
+            $('.box').addClass('interbox');
+
+           }else{
+                $('.box').removeClass('interbox');
+           }
+        },1000);
+
+    </script>
+
+
+    <div class="box2">A</div>
+    <div class="box3">B</div>
+    <br><br>
+    <button id="show">a</button>
+    <button id="hide">b</button>
+
+    <script>
+    $(document).ready(function(){
+        $(document).on('click', '#show', function(){
+            $('.box2').addClass('show');
+            $('.box3').removeClass('show');
+        });
+        $(document).on('click', '#hide', function(){
+            $('.box3').addClass('show');
+            $('.box2').removeClass('show');
+        });
+    })
+    </script>
+</body>
+</html>

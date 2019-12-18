@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src = "http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        header{
+            width: 100%;
+        }
+        .inner{
+            width: 100%;
+            background: #fff;
+            color: #111;
+            font-size: 60px;
+            text-align: center;
+        }
+
+        .change{
+            background: #111;
+            color:#fff;
+        }
+        #btn{
+            width: 100px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <p>A</p>
+        </div>
+    </header>
+
+        <button id="btn"><h1>A</h1></button>
+    <script>
+        $(document).ready(function(){
+            var on = false
+            $(document).on('click', '#btn', function(){
+            if(!on){
+                $('.inner').addClass('change');
+            on = true;
+            }else{
+                $('.inner').removeClass('change');
+            on = false;
+            }                
+            });
+        });
+    </script>
+</body>
+</html>

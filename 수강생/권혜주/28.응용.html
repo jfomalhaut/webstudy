@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+        #box{width: 200px; height: 200px; border: 1px solid;}
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button id="start">
+        <h1>시작</h1>
+    </button>
+    <button id="end">
+        <h1>종료</h1>
+    </button>
+    <script>
+        
+        document.getElementById('start').onclick = function(){
+            start();
+        }
+        document.getElementById('end').onclick = function(){
+            end();
+        }
+
+
+        var count = 0;
+        var interval;
+        var on = false;
+
+        function start(){
+            if(on){
+                return;
+            }
+            on = true;
+            setend = setInterval(function(){
+                count++;
+                var rest = count%2;
+                var result;
+
+                if (rest === 1){
+                    document.getElementById('box').style.backgroundColor = 'red';
+                }else{
+                    document.getElementById('box').style.backgroundColor = 'blue';
+                }
+            },1000);
+            
+
+            console.log(count);
+        }
+
+        function end(){
+            on = false;
+            clearInterval(setend);
+        }
+
+
+    </script>
+</body>
+</html>

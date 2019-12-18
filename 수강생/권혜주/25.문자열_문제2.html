@@ -12,25 +12,16 @@
     <script>
 
         document.getElementById('btn').onclick = function(){
-            var num1 = document.getElementById('num1').value;
-            var num2 = document.getElementById('num2').value;
-            var length1 = num1.length
-            var length2 = num2.length
-            var result = length1 + length2;
+            var num1 = document.getElementById('num1').value.length;
+            var num2 = document.getElementById('num2').value.length;
 
-            output(result);
-
-            if(result === 13){
+            if(num1 === 6 && num2 ===7){
                 alert('확인되었습니다');
             }else{
                 alert('주민번호가 틀렸습니다');
             }
         }
         
-
-        function output(_value) {
-            document.getElementById('result').innerHTML = _value;
-        }
     </script>
 </body>
 </html>

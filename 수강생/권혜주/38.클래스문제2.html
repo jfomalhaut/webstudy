@@ -1,0 +1,45 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+        }
+        .tomato{
+            background : tomato !important;
+        }
+        .box{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div id="box1" class=""></div>
+        <div id="box2" class=""></div>
+    </div>
+
+
+    <button id="button_1">왼쪽</button>
+    <button id="button_2">오른쪽</button>
+    
+    
+    <script>
+        $(document).on('click', '#button_1', function(){
+            $('#box1').addClass('tomato');
+            $('#box2').removeClass('tomato');
+        }) ;
+
+        $(document).on('click', '#button_2', function(){
+            $('#box2').addClass('tomato');
+            $('#box1').removeClass('tomato');
+        }) ;
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+
+</head>
+<body>
+    <h1>결과 : <span id="result"></span></h1>
+    <button id="start">
+        <h1>날짜보기</h1>
+    </button>
+
+
+
+    <script>
+        
+        document.getElementById('start').onclick = function(){
+            start()
+            output(result);
+        }
+
+        function zero(_val){
+            if(_val < 10){
+                _val = "0" + _val
+            }
+            return _val;
+        }
+
+
+        function start(){
+            setInterval(function(){
+                var to = new Date();
+                var year = to.getFullYear();
+                var month = zero(to.getMonth()+1);
+                var date = zero(to.getDate());
+                var day = to.getDay(); // 요일
+
+                var hour = zero(to.getHours());
+                var min = zero(to.getMinutes());
+                var sec = zero(to.getSeconds());
+
+                var result = `${year}-${month}-${date} ${hour}:${min}:${sec}`;
+                document.getElementById('result').innerHTML = result;
+            }, 1000);
+
+        }
+    </script>
+</body>
+</html>

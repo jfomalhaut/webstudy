@@ -1,0 +1,31 @@
+<html>
+<head>
+
+</head>
+<body>
+    <!-- <a href="http://www.naver.com">네이버</a> -->
+
+    <button id="naver">
+        <h1>naver</h1>
+    </button>
+    <button id="google">
+        <h1>google</h1>
+    </button>
+    <button id="reload">
+        <h1>reload</h1>
+    </button>
+
+
+    <script>
+        document.getElementById('naver').onclick = function(){
+            location.href = "http://naver.com";
+        }
+        document.getElementById('google').onclick = function(){
+            location.href = "http://google.com";
+        }
+        document.getElementById('reload').onclick = function(){
+            location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -10,6 +10,11 @@
         <h1>종료</h1>
     </button>
     <script>
+        var num = 0;
+        var interval;
+        var on = false;
+
+
         document.getElementById('start').onclick = function(){
             start();
         }
@@ -19,12 +24,18 @@
 
 
         function start(){
+            if(on ===ture){
+                return;
+            }
+            // clearTimeout(setTime);
             setTime = setTimeout(function(){
-                alert('확인');
+                num++;
+                document.getElementById('result').innerHTML = num;
             }, 1000); //1000만큼 늦게 작동해라
         }
         
         function end(){
+            on = false;
             clearTimeout(setTime);
         }
     </script>

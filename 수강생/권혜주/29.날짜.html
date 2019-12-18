@@ -1,0 +1,48 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <script>
+        var to = new Date();
+        var year = to.getFullYear();
+        var month = to.getMonth()+1;
+        var date = to.getDate();
+        var day = to.getDay(); //요일
+
+        var hour = to.getHours();
+        var min = to.getMinutes();
+        var sec = zero(to.getSeconds());
+
+        //예시 : 2019-12-12 21:30:00 --> 기본적인 날짜/시간 표기 형태
+
+        var result = `${year}년-${month}월-${date}일 ${hour}시:${min}분:${sec}초` ;
+        console.log(result);
+        console.log(day);
+        var result2 = yoil(day);
+        console.log(result2);
+
+
+        function zero(_sec){
+            if (_sec < 10){
+                _sec = "0" + _sec;
+            }
+            return _sec;
+        }
+
+        function yoil(_day){
+            var yo;
+            switch(_day){
+                case 0: yo = '일'; break;
+                case 1: yo = '월'; break; 
+                case 2: yo = '화'; break; 
+                case 3: yo = '수'; break; 
+                case 4: yo = '목'; break; 
+                case 5: yo = '금'; break; 
+                case 6: yo = '토'; break; 
+            }
+            return yo + '요일';
+        }
+    </script>
+</body>
+</html>

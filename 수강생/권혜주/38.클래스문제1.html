@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background: teal;
+            opacity: 1;
+            transition: .6s;
+        }
+        .fadeOut{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+        
+    <script>
+        
+        $(document).ready(function(){
+            
+            var count = 0;
+            setInterval(function(){
+                count++;
+                if(count%2 === 1){
+                    $('.box').addClass('fadeOut');
+                }else{
+                    $('.box').removeClass('fadeOut');
+                }
+            }, 1000);
+
+        });
+    </script>
+</body>
+</html>

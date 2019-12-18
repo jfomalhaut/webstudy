@@ -1,0 +1,68 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <p>제이쿼리 설명</p>
+    <h1 id="txt">제이쿼리입니다.</h1>
+    <h1 class="txt1">제이쿼리입니다?!</h1>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+    </ul>
+    <div id="txt2">
+        <div>
+            <h1>HTML</h1>
+            <h1>CSS</h1>
+        </div>
+    </div>
+    <input type="text" id="txt_box">
+    <input type="button" value="focus" id="focus">
+
+    <select>
+        <option>HTML</option>
+        <option>CSS</option>
+        <option>JavaScript</option>
+        <option>jQuery</option>
+    </select>
+
+
+    <script>
+
+
+        $(document).ready(function(){
+            //전체
+            $('*').css('color', 'blue');
+
+            //태그
+            $('h1').css('color', 'red');
+            $('p').css('color','green');
+
+            //아이디
+            $('#txt').css('color','skyblue');
+
+            //클래스
+            $('.txt1').css('color', 'gray');
+
+            //자식선택자
+            $('ul > li').css('color', 'tomato');
+            $('ul > li:nth-child(2)').css('color', 'purple');
+
+            //속성 선택자
+            $('input[type="text"]').css('color', 'orange');
+            $('input[type="text"]').val('새로입력');
+
+            $(document).on('click', '#focus', function(){
+                $('#txt_box').focus();
+            });
+
+            $(document).on('change', 'select', function(){
+                var val = $(this).val();
+                $('input[type="text"]').val(val);
+            });
+        });
+    </script>
+</body>
+</html>

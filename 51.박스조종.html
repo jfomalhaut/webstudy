@@ -54,9 +54,26 @@
             $(document).on('keydown', function(event){
                 var key = event.keyCode;
                 console.log(key);
-
                 // 어떤 방향을 눌렀는지를 구분해내고,
                 // 해당 방향에 맞게 해당 버튼을 trigger해보세요.
+                switch(key){
+                    case 38: {
+                        $('#up').trigger('click');
+                        break;
+                    } 
+                    case 40: {
+                        $('#down').trigger('click');
+                        break;
+                    }
+                    case 37: {
+                        $('#left').trigger('click');
+                        break;
+                    }
+                    case 39: {
+                        $('#right').trigger('click');
+                        break;
+                    }
+                }
             })
         });  
     </script>

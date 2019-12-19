@@ -119,21 +119,28 @@
 
 
             var i = 0;
-            var repeat;
+            var repeat2;
+            var length = $('.box').length;
+            var on = false;
 
             function repeat(){
-                stop();
-                repeat = setInterval(function(){
+                if(on){
+                    return;
+                }
+                on = true;
+                repeat2 = setInterval(function(){
                     i++;
-                    if(i > 3){
-                        i = 0;
-                    }
+                    i = i % length;
+                    // if(i > 3){
+                    //     i = 0;
+                    // }
                     change(i);
                 },500);
             };
 
             function stop(){
-                clearInterval(repeat);
+                on = false;
+                clearInterval(repeat2);
             }
 
             function change(_change){

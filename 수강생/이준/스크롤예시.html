@@ -1,0 +1,68 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{list-style: none; margin : 0; padding:0; text-decoration: none; color : black;}
+        ul{display: flex; width : 100%; height : 100px; justify-content: space-between;
+        align-items: center;}
+        header{box-sizing: border-box; height : 100px;}
+        li{width : 20%; height :100px; line-height :100px; text-align: center; background :rgba(55,55,55,0.3);}
+        .sec{ width : 100%; height : 1000px; 
+            line-height: 1000px; text-align: center; font-size : 50px; font-weight: bold;
+        }
+        .sec:nth-child(odd){ background : yellowgreen; }
+        .sec:nth-child(even){ background : deepskyblue; }
+        .rel{ position: relative; }
+        .fix{ position: fixed; width:100%;}
+    </style>
+    <script>
+        $(document).ready(function(){
+            $(window).scroll(function(){
+                var header = $("header").height();
+                var top = $(window).scrollTop();
+
+                if(top == 0){
+                    $("header").removeClass("fix").addClass("rel");
+                }else{
+                    $("header").removeClass("rel").addClass("fix");
+                }
+            });
+            
+            // 천천히 넘어가기
+            $(document).on("click", "a", function(){
+                event.preventDefault(); // 이벤트 무효화
+                var href = $(this).attr("href"); // a태그의 href를 확인
+                var target = $(href =="" ? 'html' : href); 
+                // if(href == ""){
+                //     target = "html";
+                // }else{
+                //     target = href;
+                // }
+
+                var pos = target.offset().top - $("header").height();
+                $("body, html").animate({
+                    scrollTop:pos
+                },500);
+            })
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <ul>
+            <li><a href="#sec1">menu1</a></li>
+            <li><a href="#sec2">menu2</a></li>
+            <li><a href="#sec3">menu3</a></li>
+            <li><a href="#sec4">menu4</a></li>
+            <li><a href="#sec5">menu5</a></li>
+        </ul>
+    </header>
+    <section>
+        <div id="sec1" class="sec">sec1</div>
+        <div id="sec2" class="sec">sec2</div>
+        <div id="sec3" class="sec">sec3</div>
+        <div id="sec4" class="sec">sec4</div>
+        <div id="sec5" class="sec">sec5</div>
+    </section>
+</body>
+</html>

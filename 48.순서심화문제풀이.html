@@ -1,0 +1,74 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box; user-select: none;}
+        .box{
+            width: 100px; height: 100px; background: tomato; display: inline-block;
+            cursor: pointer;
+            opacity: 0;
+        }
+        li{
+            opacity: 0;
+            list-style: none; width: 100px; height: 40px; line-height: 40px; display: inline-block; 
+            text-align: center; border: 1px solid; cursor: pointer;
+        }
+        .activeBox{  opacity: 1;}
+        .active{  opacity: 1;}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="box activeBox"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <ul>
+        <li class="active">box1</li>
+        <li>box2</li>
+        <li>box3</li>
+        <li>box4</li>
+    </ul>
+
+    <button id="start">
+        <h1>start</h1>
+    </button>
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            $(document).on('click', '.box', function(){
+                index = $(this).index();
+                change(index);
+            });
+            $(document).on('click', 'li', function(){
+                index = $(this).index();
+                change(index);
+            });
+
+            var interval;
+            var length = $('.box').length;
+
+            $(document).on('click', '#start', function(){
+                interval = setInterval(function(){
+                    index++;
+                    index = index%length;
+                    change(index);
+                },500);
+            });
+
+            function change(_idx){
+                $('.box').removeClass('activeBox');
+                $('li').removeClass('active');
+                $('.box').eq(_idx).addClass('activeBox');
+                $('li').eq(_idx).addClass('active');
+            }
+
+
+            
+        })
+    </script>
+</body>
+</html>

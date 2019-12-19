@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <style>
+            .box{ width: 100px; height: 100px; background: orange; position: absolute;}
+        </style>
+    </head>
+<body>
+    <button id="up">
+        <h1>위</h1>
+    </button>
+    <button id="down">
+        <h1>아래</h1>
+    </button>
+    <button id="left">
+        <h1>왼쪽</h1>
+    </button>
+    <button id="right">
+        <h1>오른쪽</h1>
+    </button>
+    <div class="box"></div>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', 'button', function(){
+                var id = $(this).attr('id');
+                switch(id){
+                    case 'up' : {
+                        $('.box').stop().animate({
+                            top: "-=100"
+                        });
+                        break;
+                    }
+                    case 'down' : {
+                        $('.box').stop().animate({
+                            top: "+=100"
+                        });
+                        break;
+                    }
+                    case 'left' : {
+                        $('.box').stop().animate({
+                            left: "-=100"
+                        });
+                        break;
+                    }
+                    case 'right' : {
+                        $('.box').stop().animate({
+                            left: "+=100"
+                        });
+                        break;
+                    }
+                }
+            });
+
+            $(document).on('keydown', function(event){
+                var key = event.keyCode;
+                console.log(key);
+
+                // 어떤 방향을 눌렀는지를 구분해내고,
+                // 해당 방향에 맞게 해당 버튼을 trigger해보세요.
+            })
+        });  
+    </script>
+</body>
+</html>

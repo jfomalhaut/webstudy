@@ -1,0 +1,59 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .img1{
+            width: 200px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Hello, JavaScript!</h1>
+    <input type="button" value="속성찾기" id="find"><br><br>
+    
+    파일명 : <input type="text" id="f_name"><br>
+    확장자 : <input type="text" id="f_type"><br><br>
+    
+    <input type="button" value="속성변경" id="btn2"><br>
+    <img src="img/image.jpg" alt="이미지" id="img1" class="img1"><br><br>
+
+    <input type="button" value="텍스트" id="btn3">
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#find', function(){
+                var imgSrc = $('#img1').attr('src');
+                // attr은 속성이라는 뜻
+                var imgHeight = $("#img1").css('height');
+                // console.log(imgSrc, imgHeight);
+                var imgArr = imgSrc.split('.');
+                console.log(imgArr);
+
+                
+                $("#f_name").val(imgArr[0]);
+                $("#f_type").val(imgArr[1]);
+
+            });
+
+            $(document).on('click', '#btn2', function(){
+                // attr 속성, 바뀔이름
+                $("#img1").attr('alt', '사진1');
+                $("#img1").attr('name', '사진1');
+
+                $("#img1").removeAttr('class');
+                $("#img1").attr('src', 'img/image2.jpg');
+            });
+
+            $(document).on('click', '#btn3', function(){
+                var h1_html = $("h1").html();
+                var h1_text = $("h1").text();
+                console.log('html : ' + h1_html);
+                console.log('text : ' + h1_text);
+
+                // $("h1").html("Hello, jQuery");
+                $("h1").text("Hello, jQuery");
+            })
+        });
+    </script>
+</body>
+</html>

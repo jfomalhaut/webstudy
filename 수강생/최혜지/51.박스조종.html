@@ -1,0 +1,83 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{ 
+            width: 100px; height: 100px; 
+            background: orange; position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button id="up">
+        <h1>위</h1>
+    </button>
+    <button id="down">
+        <h1>아래</h1>
+    </button>
+    <button id="left">
+        <h1>왼쪽</h1>
+    </button>
+    <button id="right">
+        <h1>오른쪽</h1>
+    </button>
+    <div class="box"></div>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', 'button', function(){
+                var id = $(this).attr('id');
+                switch(id){
+                    case 'up' : {
+                        $('.box').stop().animate({
+                            top: "-=100"
+                        });
+                        break;
+                    }
+                    case 'down' : {
+                        $('.box').stop().animate({
+                            top: "+=100"
+                        });
+                        break;
+                    }
+                    case 'left' : {
+                        $('.box').stop().animate({
+                            left: "-=100"
+                        });
+                        break;
+                    }
+                    case 'right' : {
+                        $('.box').stop().animate({
+                            left: "+=100"
+                        });
+                        break;
+                    }
+                }
+            });
+
+            $(document).on('keydown', function(event){
+                var key = event.keyCode; // 키보드 값을 인식
+                console.log(key);
+
+                switch(key){
+                   case 38 : {
+                        $('#up').trigger('click');
+                       break;
+                   }
+                   case 40 : {
+                        $('#down').trigger('click');
+                        break;
+                   }
+                   case 37 : {
+                       $('#left').trigger('click');
+                       break;
+                   }
+                   case 39 : {
+                       $('#right').trigger('click');
+                       break;
+                   }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

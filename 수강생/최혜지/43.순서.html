@@ -50,7 +50,7 @@
 
             // 클릭 이벤트
             // $(document).on('click', '.box', function(){
-            //     var index = $(this).index(); // this : 사용자가 누른것(this)
+            //     var index = $(this).index(); // this : 사용자가 누른것, 요소(this)
             //     alert(`당신이 누른 box는 ${index}번째 입니다`); 
             // });
 
@@ -60,18 +60,28 @@
             // 활성화 되는, 그리고 반대로 li태그를 누르면 같은 순번의 박스가
             // 활성화 되도록 만들어보세요
 
+            // 심화
+            // index를 매개변수로 넘기면 자동으로 색깔이 바뀌는 함수를 만들어보고
+            // 해당 함수와 setInterval을 묶어서 자동실행/정지가 되도록 만들어보세요
+            // index는 전역에서 선언하여서 모두 공유할 수 있게끔 한다.
+
             $(document).on('click', '.box', function(){
                 var index = $(this).index();
+                $('li').removeClass('active');
+                $('.box').removeClass('activeBox');
                 $('.box').eq(index).addClass('activeBox');
                 $('li').eq(index).addClass('active');
 
             });
             $(document).on('click', 'li', function(){
                 var index = $(this).index();
+                $('li').removeClass('active');
+                $('.box').removeClass('activeBox');
                 $('.box').eq(index).addClass('activeBox');
                 $('li').eq(index).addClass('active');
 
             });
+
         });
     </script>
 </body>

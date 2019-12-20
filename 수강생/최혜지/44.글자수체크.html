@@ -1,0 +1,28 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <h1>
+        <span>50글자</span>
+    </h1>
+    <textarea id="txt1" cols="30" rows="10"></textarea>
+    <script>
+        $(document).ready(function(){
+            $(document).on('keyup', '#txt1', function(){
+                var limit = 50;
+                var value = $(this).val();
+                var length = value.length;
+                var remain = limit - length;
+                $('span').html(remain);
+
+                if(remain >= 0){
+                    $('span').css('color', 'blue');
+                }else{
+                    $('span').css('color', 'red');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

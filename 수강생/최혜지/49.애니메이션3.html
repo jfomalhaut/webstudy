@@ -1,0 +1,26 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{
+            width: 200px; height: 200px; background: tomato; position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        $(document).ready(function(){
+            $('.box').animate({
+                left: 500
+            }).animate({
+                top: 500
+            }).animate({
+                left: 0
+            }).animate({
+                top: 0
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

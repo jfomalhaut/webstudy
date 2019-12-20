@@ -1,0 +1,72 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box, .box2{
+            width: 100px; height: 100px; background: tomato; transition: .2s;
+        }
+        .active{ background: yellowgreen;}
+        .active2{ width: 200px; height: 200px;}
+        .active3{ border-radius: 20%;}
+
+        #btn3{ display: none;}
+    </style>
+</head>
+<body>
+    <div class="box"></div><br><br>
+    <button id="btn1">
+        <h1>버튼1</h1>
+    </button>
+    <button id="btn2">
+        <h1>버튼2</h1>
+    </button><br><br><br><br><br>
+    <div class="box2"></div><br><br>
+    <button id="btn3">
+        <h1>버튼3</h1>
+    </button>
+    <button id="btn4">
+        <h1>버튼4</h1>
+    </button>
+    <button id="btn5">
+        <h1>버튼5</h1>
+    </button>
+    <button id="btn6">
+        <h1>버튼6</h1>
+    </button>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#btn1', function(){
+                $('.box').addClass('active');
+            });
+
+            $(document).on('click', '#btn2', function(){
+                $('#btn1').trigger('click');
+            })
+
+
+
+            // 문제
+            // 현재 보고 있는 박스의 크기를 2배로 늘려주는 버튼을 만들고(이 버튼은 보이지 않게),
+            // 그 버튼을 트리거하는 버튼을 만들어보세요.
+
+            $(document).on('click', '#btn3', function(){
+                $('.box2').addClass('active2');
+            });
+
+            $(document).on('click', '#btn4', function(){
+                $('#btn3').trigger('click');
+            });
+
+            // 박스에 radius값을 주는 버튼
+            $(document).on('click', '#btn5', function(){
+                $('.box2').addClass('active3');
+            })
+
+            $(document).on('click', '#btn6', function(){
+                $('#btn4').trigger('click');
+                $('#btn5').trigger('click');
+            })
+        });
+    </script>
+</body>
+</html>

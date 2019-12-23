@@ -31,7 +31,7 @@
     <button id="next">
         <h1>다음</h1>
     </button>
-    <button id="next">
+    <button id="prev">
         <h1>이전</h1>
     </button>
     <script>
@@ -42,16 +42,36 @@
             $(document).on('click', '#next', function(){
                 next();
             });
+            $(document).on('click', '#prev', function(){
+                prev();
+            });
 
             function next(){
+                // if(index === 3){
+                //     alert('끝페이지입니다');
+                //     return;
+                // }
                 index++;
-                index = index % length;
+                // index = index % length;
+                if(index === length){
+                    index = 0;
+                }
                 $('.image').removeClass('active');
                 $('.image').eq(index).addClass('active');
             }
 
             function prev(){
-
+                // if(index === 0){
+                //     alert('끝페이지입니다');
+                //     return;
+                // }
+                index--;
+                if(index === -1){
+                    index = length - 1;
+                }
+                $('.image').removeClass('active');
+                $('.image').eq(index).addClass('active');
+                // 0 3 2 1 0 3 2 1 0 3 2 1
             }
         });
     </script>

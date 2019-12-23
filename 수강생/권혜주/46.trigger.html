@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background: slateblue;
+            transition: .2s;
+        }
+        .active{
+            background: tomato;
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background: slateblue;
+        }
+        .color{
+            background: skyblue;
+        }
+        .big{
+            width: 200px;
+            height: 200px;
+            transition: .2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div><br><br>
+    <button id="btn1">
+        <h1>버튼1</h1>
+    </button>
+    <button id="btn2">
+        <h1>버튼2</h1>
+    </button>
+
+    <br><br><br>
+
+
+
+    <div class="box2"></div><br><br>
+    <button id="btn3"><h1>확대</h1></button>
+    <button id="btn4"><h1>컬러</h1></button>
+    <button id="btn5"><h1>트리거</h1></button>
+
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#btn1', function(){
+                $('.box').addClass('active');
+            });
+
+            $(document).on('click', '#btn2', function(){
+                $('#btn1').trigger('click');
+            });
+
+
+            $(document).on('click', '#btn4', function(){
+                $('.box2').addClass('color');
+            })
+            $(document).on('click', '#btn3', function(){
+                $('.box2').addClass('big');
+            })
+            $(document).on('click', '#btn5', function(){
+                $('#btn3').trigger('click');
+                $('#btn4').trigger('click');
+            })
+            
+
+
+
+        })
+    </script>
+</body>
+</html>

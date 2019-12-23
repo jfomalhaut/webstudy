@@ -1,0 +1,58 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .box{
+            margin: 10px 0;
+            background: #d2d2d2;
+            color: white;
+            font-size: 40px; line-height: 100px;
+            width: 100px; height: 100px; text-align: center;
+        }
+        .active{ background: black;}
+    </style>
+</head>
+<body>
+    <div class="btns">
+        <button id="prev">
+            <h1>이전</h1>
+        </button>
+        <button id="next">
+            <h1>다음</h1>
+        </button>
+        <div class="container">
+            <div class="box active">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            var length = $('.box').length;
+
+            $(document).on('click', '#next', function(){
+                index++;
+                if(index === length){
+                    index = 0;
+                }
+                $('.box').removeClass('active').eq(index).addClass('active');
+            });
+            
+            $(document).on('click', '#prev', function(){
+                index--;
+                if(index === -1){
+                    index = length - 1;
+                }
+                $('.box').removeClass('active').eq(index).addClass('active');
+            });
+            
+            $(document).on('click', '.box', function(){
+                index = $(this).index();
+                $('.box').removeClass('active').eq(index).addClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

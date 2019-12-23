@@ -28,18 +28,50 @@
         <div class="image"></div>
         <div class="image"></div>
     </div>
+    <button id="next">
+        <h1>다음</h1>
+    </button>
+    <button id="prev">
+        <h1>이전</h1>
+    </button>
     <script>
-        var interval;
         var length = $('.image').length;
 
         $(document).ready(function(){
-            var index = $(this).index();
-            interval = setInterval(function(){
+           var index = 0;
+           $(document).on('click', '#next', function(){
+            //    index++;
+            //    index = index % length;
+            //    $('.image').removeClass('active');
+            //    $('.image').eq(index).addClass('active');
+            next();
+           });
+           $(document).on('click', '#prev', function(){
+                prev();
+                console.log(index);
+           });
+
+           function next(){
                 index++;
-                index = index%length;
-                $('.image').addClass('active');
-                $('.image').eq(index).remove('active');
-            }, 1000);
+                // index = index % length;
+                if(index === 4){
+                    index = 0;
+                }
+                $('.image').removeClass('active');
+                $('.image').eq(index).addClass('active');
+           }
+
+           function prev(){
+                index--;
+                // index = index % length;
+                if(index === -1){
+                    index = 3;
+                    // 또는 length -1;
+                }
+                $('.image').removeClass('active');
+                $('.image').eq(index).addClass('active');
+           }
+
         });
     </script>
 </body>

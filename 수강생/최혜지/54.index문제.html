@@ -1,0 +1,75 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .cir{
+            width: 150px; height: 150px;
+            background: lightgray;
+            border-radius: 50%;
+            color: #000; font-weight: bold;
+            font-size: 30px; text-align: center; line-height: 150px;
+            margin: 20 auto;
+        }
+        .active{
+            background: tomato;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <button id="prev">
+        <h1>이전</h1>
+    </button>
+    <button id="next">
+        <h1>다음</h1>
+    </button>
+    <button id="auto">
+        <h1>자동시작</h1>
+    </button>
+    <button id="stop">
+        <h1>멈춤</h1>
+    </button>
+    <div class="cir active">1</div>
+    <div class="cir">2</div>
+    <div class="cir">3</div>
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            var length = $('.cir').length;
+            var interval;
+
+            // prev
+            $(document).on('click', '#prev', function(){
+                index--;
+                if(index === -1){
+                    index = length -1;
+                }
+                $('.cir').removeClass('active');
+                $('.cir').eq(index).addClass('active');
+            });
+
+            // next
+            $(document).on('click', '#next', function(){
+                index++;
+                if(index === length){
+                    index = 0;
+                }
+                $('.cir').removeClass('active');
+                $('.cir').eq(index).addClass('active');
+            });
+
+            // auto
+            $(document).on('click', '#auto', function(){
+                
+            });
+
+            // 클릭 이벤트
+            $(document).on('click', '.cir', function(){
+                index = $(this).index();
+                $('.cir').removeClass('active');
+                $('.cir').eq(index).addClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

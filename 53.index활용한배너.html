@@ -28,9 +28,31 @@
         <div class="image"></div>
         <div class="image"></div>
     </div>
+    <button id="next">
+        <h1>다음</h1>
+    </button>
+    <button id="next">
+        <h1>이전</h1>
+    </button>
     <script>
         $(document).ready(function(){
-            
+            var index = 0;
+            var length = $('.image').length;
+
+            $(document).on('click', '#next', function(){
+                next();
+            });
+
+            function next(){
+                index++;
+                index = index % length;
+                $('.image').removeClass('active');
+                $('.image').eq(index).addClass('active');
+            }
+
+            function prev(){
+
+            }
         });
     </script>
 </body>

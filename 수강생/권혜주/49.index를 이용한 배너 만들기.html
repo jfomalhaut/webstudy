@@ -1,0 +1,131 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .banner{
+            position: relative;
+            height: 400px;
+            margin-bottom: 20px;
+        }
+        .image{
+            position: absolute;
+            left: 0; top: 0; width: 100%;
+            height: 400px; opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+        }
+        .image:nth-child(1){background: tomato;}
+        .image:nth-child(2){background: darkblue;}
+        .image:nth-child(3){background: khaki; }
+        .image:nth-child(4){background: slateblue;}
+        
+        .active{
+            opacity: 1;
+        }
+
+        .banner_dot{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .dot{
+            width: 16px;
+            height: 16px;
+            background: black;
+            border-radius: 50px;
+            margin-right: 10px;
+            margin-bottom: 20px;
+        }
+        .dot:last-child{
+            margin-right: 0;
+        }
+        .btns{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            width: 100px;
+            height: 45px;
+            background: black;
+            color: white;
+        }
+        button:first-child{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="image active"><h1>1</h1></div>
+        <div class="image"><h1>2</h1></div>
+        <div class="image"><h1>3</h1></div>
+        <div class="image"><h1>4</h1></div>
+    </div>
+    
+    <div class="banner_dot">
+        <div class="dot" id="dot1"></div>
+        <div class="dot" id="dot2"></div>
+        <div class="dot" id="dot3"></div>
+        <div class="dot" id="dot4"></div>
+    </div>
+
+    <div class="btns">
+        <button id="start"><h1>시작</h1></button>
+        <button id="end"><h1>종료</h1></button>
+    </div>
+    <script>
+
+        $(document).ready(function(){
+            
+            var index = 0;
+
+            $(document).on('click', '.dot', function(){
+                var index = $(this).index();
+                change(index);
+            });
+
+            $(document).on('click', '#start', function(){
+                repeat();
+            });
+            $(document).on('click', '#end', function(){
+                stop();
+            });
+            
+
+
+            var i = 0;
+            var _interval;
+            var length = $('.image').length;
+            var on = false;
+
+            function repeat(){
+                if(on){
+                    return;
+                }
+                on = true;
+                _interval = setInterval(function(){
+                    i++;
+                    i = i%length;
+                    change(i);
+                },800);
+            };
+
+            function stop(){
+                on = false;
+                clearInterval(_interval);
+            }
+
+            function change(_change){
+                $('.image').removeClass('active');
+                $('.image').eq(_change).addClass('active');
+            }
+
+        });
+
+    </script>
+</body>
+</html>

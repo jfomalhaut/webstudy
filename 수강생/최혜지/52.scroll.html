@@ -1,0 +1,63 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{
+            margin: 0; padding: 0; list-style: none; 
+            text-decoration: none; color: white;
+        }
+        ul{
+            display: flex; width: 100%; height: 100px; 
+            justify-content: center; align-items: center;
+        }
+        header{
+            box-sizing: border-box; width: 100%; height: 100px; background: rgba(0,0,0,.7);
+            position: fixed; left: 0; top: 0;
+        }
+        li{
+            width: 100%; line-height: 100px; text-align: center; color: white;
+        }
+        .sec{
+            width: 100%; height: 100vh; line-height: 100vh; text-align: center;
+            font-size: 50px; font-weight: bold; background: yellowgreen;
+        }
+        .sec:nth-child(odd){ background: deepskyblue;}
+        .sec:nth-child(1){
+            height: calc(100vh - 100px);
+            padding-top: 100px;
+        }
+    </style>
+</head>
+<body>0
+    <header>
+        <ul>
+            <li><a href="#sec1">menu1</a></li>
+            <li><a href="#sec2">menu2</a></li>
+            <li><a href="#sec3">menu3</a></li>
+            <li><a href="#sec4">menu4</a></li>
+            <li><a href="#sec5">menu5</a></li>
+        </ul>
+    </header>
+    <div class="wrap">
+        <section id="sec1" class="sec">sec1</section>
+        <section id="sec2" class="sec">sec2</section>
+        <section id="sec3" class="sec">sec3</section>
+        <section id="sec4" class="sec">sec4</section>
+        <section id="sec5" class="sec">sec5</section>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', 'a',function(){
+                event.preventDefault(); // event 무효화
+                var href = $(this).attr('href'); // href의 값을 불러온다
+                var target = $(href); // target에 저장하고
+                var positionTop = target.offset().top; // 타겟의 위치를 불러온다
+
+                $('body, html').animate({
+                    scrollTop: positionTop 
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>

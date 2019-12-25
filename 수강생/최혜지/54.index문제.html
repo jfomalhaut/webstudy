@@ -58,7 +58,14 @@
                 $('.cir').removeClass('active');
                 $('.cir').eq(index).addClass('active');
             });
-
+            function next(){
+                index++;
+                if(index === length){
+                        index = 0;
+                    }
+                $('.cir').removeClass('active');
+                $('.cir').eq(index).addClass('active');
+            }
             // auto
             $(document).on('click', '#auto', function(){
                 interval = setInterval(function(){

@@ -37,6 +37,7 @@
             var index = 0;
             var length = $('.cir').length;
             var interval;
+            var on = false;
 
             // prev
             $(document).on('click', '#prev', function(){
@@ -60,7 +61,24 @@
 
             // auto
             $(document).on('click', '#auto', function(){
-                
+                interval = setInterval(function(){
+                    index++;
+                    if(index === length){
+                        index = 0;
+                    }
+                    if(on === true){
+                        return;
+                    }
+                    on = true;
+                    $('.cir').removeClass('active');
+                    $('.cir').eq(index).addClass('active');
+                },1000);
+            });
+
+            // stop
+            $(document).on('click', '#stop', function(){
+                on = false;
+                clearInterval(interval);
             });
 
             // 클릭 이벤트

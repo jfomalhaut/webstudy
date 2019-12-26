@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .banner{
+            position: relative;
+            width: 100%;
+            margin: 20px 0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+            border-radius: 50%; 
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .active{
+            background: darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">이전</button>
+    <button id="btn2">다음</button>
+    <button id="btn3">자동시작</button>
+    <button id="btn4">멈춤</button>
+
+    <div class="banner">
+        <div class="box active">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+
+            var index = 0;
+            var length = $('.box').length;
+            var stop;
+            var on = false;
+
+            $(document).on('click', '#btn1', function(){
+                prev();
+            }); 
+            $(document).on('click', '#btn2', function(){
+                next();
+            });
+            $(document).on('click', '#btn3', function(){
+                turn();
+            });
+            $(document).on('click', '#btn4', function(){
+                trun_out();
+            });
+            function prev(){
+                index--;
+                if(index === -1){
+                    index = length-1;
+                }
+                $('.box').removeClass('active').eq(index).addClass('active');
+            }
+            function next(){
+                index++;
+                // index = index % length; 밑에와 같은말
+                if(index === length){
+                    index = 0;
+                }
+                //줄여서 쓰는방법
+                // $('.box').removeClass('active');
+                // $('.box').eq(index).addClass('active');
+                $('.box').removeClass('active').eq(index).addClass('active');
+                
+            }
+            //박스 클릭시 이동
+            $(document).on('click', '.box', function(){
+                index = $(this).index();
+                $('.box').removeClass('active').eq(index).addClass('active');
+            });
+
+            function turn(){
+                if(on){
+                    return;
+                }
+                on = true;
+
+                stop = setInterval(function(){
+                    index++;
+                    index = index % length;
+                    output(index);
+                }, 1000);
+            }
+            function trun_out(){
+                clearInterval(stop);
+                on =false;
+            }
+            function output(_ind){
+                $('.box').removeClass('active').eq(_ind).addClass('active');
+            }
+        });
+    </script>
+</body>
+</html>

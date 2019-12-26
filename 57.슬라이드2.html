@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .container{
+            position: relative; width: 1000px; height: 300px; margin: 50px auto 20px auto;
+            border: 2px solid red;
+        }
+        .wrapper{ position: absolute; left: 0; display: flex; }
+        .slide{ width: 1000px; display: flex; }
+        .slide li{
+            list-style: none; width: 100%; height: 300px; margin-right: 10px;
+            background-color: deepskyblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <button id="prev"><h1>이전</h1></button>
+    <button id="next"><h1>다음</h1></button>
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            var timer = 400;
+            var width =  $('.slide').width(); // 1000px
+            var length = $('.slide').length;
+
+            $(document).on('click', '#next', function(){
+                // slide 갯수는 총 3개입니다.
+                // index 는 0, 1, 2
+                // 우리가 하려는것은 끝화면일 때 더 이상 넘어가지 않기 위함
+                // 끝화면일 때 index는? 2
+                if(index === length - 1){
+                    return;
+                }
+                index++;
+                move(index);
+            });
+
+            $(document).on('click', '#prev', function(){
+                index--;
+                move(index);
+            });
+
+            function move(_idx){
+                $('.wrapper').animate({
+                    'left' : _idx * width * -1
+                }, timer);
+            }
+        });
+    </script>
+</body>
+</html>

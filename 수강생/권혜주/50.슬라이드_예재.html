@@ -1,0 +1,155 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        .circle{
+            width: 200px;
+            height: 200px;
+            background: lightgray;
+            border-radius: 100px;
+            font-size: 50px;
+            font-weight: bold;
+            margin: 50px 0;
+        }
+        .circle1{
+            margin: 0 auto;
+            line-height: 200px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 200px;
+        }
+        .circle:last-child{
+            margin: 0;
+        }
+        
+        .colored{
+            color: white;
+            background: slateblue;
+        }
+        
+        .btns{
+            display: flex;
+            justify-content: center;
+        }
+        button{
+            width: 120px;
+            height: 60px;
+            margin-right: 10px;
+            font-size: 25px;
+            font-weight: bold;
+            background: black;
+            color: white;
+        }
+        button:last-child{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle circle1 colored">1</div>
+    <div class="content">
+        <div class="circle circle2">2</div>
+        <div class="circle circle2">3</div>
+    </div>
+    
+    <div class="btns">
+        <button id="prev">이전</button>
+        <button id="next">다음</button>
+        <button id="start">시작</button>
+        <button id="stop">멈춤</button>
+    </div>
+    
+
+
+
+    <script>
+
+        $(document).ready(function(){
+            var index = 0;
+            var length = $('.circle').length;
+
+            $(document).on('click', '#prev', function(){
+                var index = $(this).index();
+                prev();
+            })
+            $(document).on('click', '#next', function(){
+                var index = $(this).index();
+                next();
+            })
+            $(document).on('click', '#start', function(){
+                repeat(index);
+            })
+            $(document).on('click', '#stop', function(){
+                stop();
+            })
+
+
+
+
+
+
+            function prev(){
+                index--;
+                if(index < 0){
+                    index = 2;
+                }
+                console.log(index);
+                $('.circle').removeClass('colored').eq(index).addClass('colored');
+            }
+
+            function next(){
+                index++;
+                if(index === length){
+                    index = 0;
+                }
+                console.log(index);
+                $('.circle').removeClass('colored').eq(index).addClass('colored');
+            }
+            
+
+
+
+
+            var on = false;
+            var _interval;
+
+            function repeat(){
+                if(on){
+                    return;
+                }
+                on = true;
+                _interval = setInterval(function(){
+                    index++;
+                    index = index%length;
+                    change(index);
+                }, 800);
+            }
+
+            function change(_change){
+                $('.circle').removeClass('colored').eq(index).addClass('colored');
+            }
+            
+            function stop(){
+                on = false;
+                clearInterval(_interval);
+            }
+
+        
+
+        });
+
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+    <style>
+        *{padding: 0; margin: 0;box-sizing: border-box;}
+        .container{
+            position: relative;
+            width: 1000px;
+            height: 300px;
+            margin: 50px auto 20px auto;
+            overflow: hidden;
+        }
+        .wrapper{
+            position: absolute;
+            left: 0;
+            display: flex;
+        }
+        .slide{
+            width: 1000px;
+            display: flex;
+        }
+        .slide li{
+            list-style: none;
+            width: 100%;
+            height: 300px;
+            margin-right: 10px;
+        }
+        .slide:nth-child(1) li{
+            background: gold;
+        }
+        .slide:nth-child(2) li{
+            background: darkcyan;
+        }
+        .slide:nth-child(3) li{
+            background: saddlebrown;
+        }
+        .bull{
+            display: flex;
+            justify-content: center;
+        }
+        .in_bull{
+            width: 20px;
+            height: 20px;
+            background: #ddd;
+            border-radius: 50%; 
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .active{
+            background: #000;
+        }
+    </style>
+</head>
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <ul class="slide">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <div class="bull">
+        <div class="in_bull active"></div>
+        <div class="in_bull"></div>
+        <div class="in_bull"></div>
+    </div>
+    <button id="prev">이전</button>
+    <button id="next">다음</button>
+
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            var timer = 1000;
+            var width = $('.slide').width(); 
+            var length = $('.slide').length;
+            
+            $(document).on('click', '#next', function(){
+                if(index === 2){
+                    return;
+                }
+                index++;
+                move(index);
+            }); 
+            $(document).on('click', '#prev', function(){
+                if(index === 0){
+                    return;
+                }
+                index--;
+                move(index);
+            });
+            $(document).on('click', '.in_bull', function(){
+                index = $(this).index();
+                move(index);
+            });
+
+            function move(_ind){
+                $('.in_bull').removeClass('active').eq(index).addClass('active');
+                $('.wrapper').animate({
+                    left: _ind * width * -1
+                }, timer);
+            }
+        });
+    </script>
+</body>
+</html>

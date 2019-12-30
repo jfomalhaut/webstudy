@@ -5,7 +5,8 @@
         *{margin:0; padding:0; box-sizing: border-box;}
         .container{
             position: relative; width: 1000px; height: 300px; margin: 50px auto 20px auto;
-            border: 2px solid red;
+            overflow: hidden;
+            /* border: 2px solid red; */
         }
         .wrapper{ position: absolute; left: 0; display: flex; }
         .slide{ width: 1000px; display: flex; }
@@ -46,23 +47,29 @@
     <script>
         $(document).ready(function(){
             var index = 0;
-            var timer = 400;
+            var timer = 500;
             var width =  $('.slide').width(); // 1000px
             var length = $('.slide').length;
+            var animation = false;
 
             $(document).on('click', '#next', function(){
                 // slide 갯수는 총 3개입니다.
                 // index 는 0, 1, 2
                 // 우리가 하려는것은 끝화면일 때 더 이상 넘어가지 않기 위함
                 // 끝화면일 때 index는? 2
-                if(index === length - 1){
+                if(index === length - 1 || animation){ // 끝화면이거나 혹은 애니메이션이 작동 중일 때
                     return;
                 }
+                animation = true;
                 index++;
                 move(index);
             });
 
             $(document).on('click', '#prev', function(){
+                if(index === 0 || animation){ // 첫화면이거나 혹은 애니메이션이 작동 중일 때
+                    return;
+                }
+                animation = true;
                 index--;
                 move(index);
             });
@@ -70,7 +77,12 @@
             function move(_idx){
                 $('.wrapper').animate({
                     'left' : _idx * width * -1
-                }, timer);
+                }, {
+                    duration: timer,
+                    complete: function(){
+                        animation = false;
+                    }
+                });
             }
         });
     </script>

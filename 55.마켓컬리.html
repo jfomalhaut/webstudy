@@ -17,11 +17,23 @@
             display: inline-block; height: 18px; font-size: 12px; font-weight: 700; text-align: center;
             background: #6335a8; border: 1px solid #6335a7; color: white; line-height: 18px;
         }
+        #count{
+            position: fixed;
+            background: red;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            right: 40px; top: 40px;
+            color: white;
+        }
 
     </style>
 </head>
 <body>
     <div class="container"></div>
+    <div id="count">0</div>
     <script>
 
         $(document).ready(function(){
@@ -35,13 +47,16 @@
                 { id:7, name:"GAP 고당도 씨없는 샤인머스크",price: 79800, event:75000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img7.jpg", new: false },
                 { id:8, name:"GAP 고당도 씨없는 귤",price: 89800, event:89800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img8.jpg", new: true },
                 { id:9, name:"GAP 고당도 씨없는 배",price: 99800, event:95000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img9.jpg", new: true }
-            ]; //json 배열 방식
+            ];
+            //json 배열 방식
+            // 이 방식은 실제 DB에 들어가고, 나오는 형태
 
-            var name, price, desc, src, newTag, new2;
+            var id, name, price, desc, src, newTag, new2;
             var html = '';
             var txt = '';
 
-            for(var i in pdt){
+            for(var i in pdt){ // pdt 배열 안의 갯수만큼 반복문이 돌아간다.(while문 ==> 직접 공부)
+                id = pdt[i].id;
                 name = pdt[i].name;
                 price = pdt[i].price;
                 desc = pdt[i].name;
@@ -54,6 +69,7 @@
 
                 txt = 
                 `<div class='item'>
+                    <input type='hidden' class="itemId" value="${id}">
                     <div class='img'>
                         <img src='img2/${src}'>
                     </div>
@@ -66,12 +82,42 @@
                     <div class='desc'>
                         ${desc}
                     </div>
+                    <button class='cart'>담기</button>
                     ${newTag}
                 </div>`;
                 html = html + txt;
+                // $('.container').append(txt); // 반복문 내에 여러가지가 작동하는 것은 좋지 않다
             }
+
             $('.container').html(html);
 
+            // 부모를 기준으로 자식을 찾는 방식(children)
+            $(document).on('click', '.item', function(){ // 9개
+                var itemId = $(this).children('.itemId')[0].value;
+                // window.location = "58.detail.html?itemId=" + itemId;
+            });
+
+            // 형제를 찾는 방식(siblings)
+            $(document).on('click', '.cart', function(){
+                var itemId = $(this).siblings('.itemId')[0].value;
+                setCart(itemId);
+            });
+
+            var cart = [];
+            var count = 0;
+
+            function setCart(id){
+                // 이미 담겨있으면 담겨있다는 메시지가 뜨도록
+                if(cart.indexOf(id) === -1){ // id가 cart안에 없으면
+                    cart.push(id);
+                    count = cart.length;
+                    $('#count').html(count);
+                }else{ // cart안에 id가 있다
+                    alert('이미 있네요');
+                }
+
+                // console.log(cart);
+            }
         })
     </script>
 </body>

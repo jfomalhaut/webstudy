@@ -66,7 +66,7 @@
             var cart = cartStr.split(',');
             var cartList;
 
-            var txt, src, name, price;
+            var txt, src, name, price, id;
             var html = '';
 
             loadCartList();
@@ -74,7 +74,19 @@
             // 문제
             // remove버튼을 누르면 해당 상품의 id가 cart에서 지워지도록 해보세요.
 
+            $(document).on('click' ,'.remove', function(){
+                // 가장 먼저 내가 누른 삭제버튼의 상품 id값을 찾아준다.
+                var id = $(this).siblings('.itemId')[0].value;
+                // cart내에서 내가 해당 id의 index를 찾아준다.
+                var index = cart.indexOf(id);
+                // cart내에서 삭제해준다.
+                cart.splice(index, 1);
+                // 다시 리스트를 출력해준다.
+                loadCartList();
+            })
+
             function loadCartList() {
+                html = '';
                 cartList = pdt.filter(function(res){
                     var result = cart.indexOf(String(res.id));
                     return result !== -1;
@@ -82,12 +94,14 @@
 
                 for(var i in cartList){
                     txt = '';
+                    id = cartList[i].id;
                     name = cartList[i].name;
                     src = cartList[i].src;
                     price = cartList[i].price;
 
                     txt = `
                         <div class="item">
+                            <input type='hidden' class="itemId" value="${id}">
                             <div class="img">
                                 <img src="img2/${src}">
                             </div>

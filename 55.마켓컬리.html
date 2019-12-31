@@ -103,6 +103,18 @@
                 setCart(itemId);
             });
 
+            // 형제를 찾는 방식
+            $(document).on('click', '.img', function(){
+                var itemId = $(this).siblings('.itemId')[0].value;
+                window.location = "58.detail.html?itemId=" + itemId;
+            });
+
+            $(document).on('click', '#count', function(){
+                // console.log(cart.join());
+                window.location = '62.마켓컬리장바구니.html?cart=' + cart.join();
+            });
+
+
             var cart = [];
             var count = 0;
 
@@ -115,7 +127,6 @@
                 }else{ // cart안에 id가 있다
                     alert('이미 있네요');
                 }
-
                 // console.log(cart);
             }
         })

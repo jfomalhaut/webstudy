@@ -64,11 +64,7 @@
             var split = url.split('=');
             var cartStr = split[1];
             var cart = cartStr.split(',');
-
-            var cartList = pdt.filter(function(res){
-                var result = cart.indexOf(String(res.id));
-                return result !== -1;
-            });
+            var cartList;
 
             var txt, src, name, price;
             var html = '';
@@ -79,6 +75,11 @@
             // remove버튼을 누르면 해당 상품의 id가 cart에서 지워지도록 해보세요.
 
             function loadCartList() {
+                cartList = pdt.filter(function(res){
+                    var result = cart.indexOf(String(res.id));
+                    return result !== -1;
+                });
+
                 for(var i in cartList){
                     txt = '';
                     name = cartList[i].name;

@@ -1,0 +1,136 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+            width: 1000px; margin: 0 auto;
+        }
+        .item{
+            padding-bottom: 20px; position: relative;
+        }
+        .item .img{border: 1px solid #ddd; cursor: pointer;}
+        .item .img img{width: 100%;}
+        .item .name{color: #4c4c4c; font-size: 20px;}
+        .item .price{color: #795c90; font-size: 17px; margin-top: 10px;}
+        .newIcon{
+            display: inline-block;
+            height: 18px;
+            font-size: 12px; font-weight: 700;
+            background: #6335a8; border: 1px solid #6335a7; color: white; line-height: 18px;
+        }
+        .nego{
+            display: inline-block;
+            font-size: 20px;
+            color: red;
+            font-weight: 700;
+        }
+        #count{
+            position: fixed;color: white;
+            background: red; border-radius: 50%; width: 50px; height: 50px; 
+            top: 100px; right: 80px; text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+    <div id="count"></div>
+
+
+    <script>
+        $(document).ready(function(){
+            var pdt = [
+                { id:1, name:"GAP 고당도 씨없는 수박",price: 19800, event:15000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img1.jpg", new: true },
+                { id:2, name:"GAP 고당도 씨없는 참외",price: 29800, event:25000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img2.jpg", new: true },
+                { id:3, name:"GAP 고당도 씨없는 딸기",price: 39800, event:39800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img3.jpg", new: false },
+                { id:4, name:"GAP 고당도 씨없는 체리",price: 49800, event:45000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img4.jpg", new: true },
+                { id:5, name:"GAP 고당도 씨없는 자몽",price: 59800, event:59800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img5.jpg", new: true },
+                { id:6, name:"GAP 고당도 씨없는 포도",price: 69800, event:69800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img6.jpg", new: false },
+                { id:7, name:"GAP 고당도 씨없는 샤인머스크",price: 79800, event:75000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img7.jpg", new: false },
+                { id:8, name:"GAP 고당도 씨없는 귤",price: 89800, event:89800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img8.jpg", new: true },
+                { id:9, name:"GAP 고당도 씨없는 배",price: 99800, event:95000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img9.jpg", new: true }
+            ]; // jason 배열 방식
+            var id, name, price, desc, src, newTag, new2, nego;
+            var html = '';
+            var txt = '';
+
+            for(var i in pdt){// odt 배열의 안의 갯수만큼 반복문이 돌아가다.(while ==>직접 공부)
+                id = pdt[i].id;
+                name = pdt[i].name;
+                price = pdt[i].price;
+                desc = pdt[i].desc;
+                src = pdt[i].src;
+                new2 = pdt[i].new;
+                newTag = ''; // 초기화
+                if(new2){
+                    newTag = `<span class = 'newIcon'>NEW</span> `
+                }
+
+                nego = pdt[i].event;
+                negoTag = '';
+
+                if(nego<price){
+                    negoTag = `<span class = 'nego'> (할인가 ${nego}원)</span>`
+                }
+
+                txt=`
+                <div class='item'>
+                    <input type = 'hidden' class = "itemId" value = "${id}">
+                    <div class = 'img'>
+                        <img src = 'img2/${src}'>
+                    </div>    
+                    <div class = 'name'>
+                    ${name}
+                    </div>    
+                    <div class = 'price'>
+                    ${price}
+                    </div>    
+                    <div class = 'desc'>
+                    ${desc}
+                    </div>
+                    <button class = 'cart'>담기 </button>
+                    ${newTag}
+                    ${negoTag}
+                </div>`;
+                html = html+txt;
+                // $('.container').append(txt); 반복문ㅇ 내에 여러가지가 작동하는 것은 좋지 않다
+            }
+            $('.container').html(html);
+
+            // 부모를 기준으로 자식을 찾는 방식
+            $(document).on('click', '.item', function(){
+                var itemId = $(this).children('.itemId')[0].value;
+                // window.location = "58.detail.html?itemId="+itemId;
+            })
+
+            // 형제는 찾는 방식(siblings)
+            $(document).on('click','.cart', function(){
+                var itemId = $(this).siblings('.itemId')[0].value;
+                setCart(itemId);
+            });
+
+            $(document).on('click', '#count', function(){
+                setCart(id);
+            });
+
+            var cart = [];
+            var count = 0;
+            function setCart(id){
+                // 이미 담겨있으면 담겨있다는 메세지가 뜨도록
+                if(cart.indexOf(id)===-1){
+                    cart.push(id);
+                    count = cart.length;
+                    $('#count').html(count);
+                }else {
+                    alert('중복')
+                }
+
+                
+        }
+        })
+    </script>
+</body>
+</html>

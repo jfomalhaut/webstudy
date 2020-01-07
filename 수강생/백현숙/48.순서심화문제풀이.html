@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        .box{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        ul{
+            display: flex;
+        }
+        li{
+            padding: 5px 10px;
+            margin: 5px;
+            list-style: none;
+            border: 1px solid;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .active{
+            background: hotpink;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- // 직접 만들어보기
+        // 박스를 누르면 해당 박스가 활성화되고, 같은 순번의 li태그도
+        // 활성화 되는, 그리고 반대로 li태그를 누르면 같은 순번의 박스가
+        // 활성화 되도록 만들어보세요.
+
+        // 심화
+        // index를 매개변수로 넘기면 자동으로 색깔이 바뀌는 함수를 만들어보고
+        // 해당 함수와 setInterval을 묶어서 자동실행/정지가 되도록 만들어보세요.
+        // index는 전역에서 선언하여서 모두 공유할 수 있게끔 해야 한다. -->
+        <div class="container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+
+        <ul>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+        </ul>
+        <button id="start">자동실행</button>
+        <button id="stop">정지</button>
+    <script>
+        $(document).ready(function(){
+            var index = 0;
+            var length = $('.box').length;
+            var interval;
+            var i = true;
+
+            $(document).on('click','#start', function(){
+                if(!i){
+                    return
+                }
+                i=false;
+                interval = setInterval(function(){
+                    index++;
+                    index = index%length;
+                    change(index);
+                },500)
+            })
+            $(document).on('click','#stop',function(){
+                i=true;
+                clearInterval(interval);
+            });
+
+            function change(_val){
+                $('.box').removeClass('active');
+                $('li').removeClass('active');
+                $('.box').eq(_val).addClass('active');
+                $('li').eq(_val).addClass('active');
+            }
+        });

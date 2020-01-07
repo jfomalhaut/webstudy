@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+           margin: 20px; 
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            background: yellowgreen;
+        }
+        ul{
+            display: flex;
+        }
+        li{
+            padding: 5px 10px;
+            margin:5px;
+            list-style: none;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            user-select: none;
+        }
+        .active{
+            background: #212121;
+            color: #fff;
+        }
+        .activeBox{
+            background: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+
+    <ul>
+        <li>box1</li>
+        <li>box2</li>
+        <li>box3</li>
+        <li>box4</li>
+    </ul>
+    <script>
+        // $(document).ready(function(){
+        //     // $('.box').eq(2).css('backgroundColor', 'red');
+        //     // $('li').eq(2).addClass('active');
+        //     $(document).on('click', '.box', function(){
+        //         var index = $(this).index();
+        //             alert(`박스 ${index} 클릭`);
+        //     })
+        // });
+
+        $(document).ready(function(){
+            $(document).on('click','.box', function(){
+                var index = $(this).index();
+                $('li').removeClass('activeBox');
+                $('.box').removeClass('activeBox');
+                $('.box').eq(index).addClass('activeBox');
+                $('li').eq(index).addClass('activeBox');
+            });
+            $(document).on('click','li', function(){
+                var index = $(this).index();
+                $('li').removeClass('activeBox');
+                $('.box').removeClass('activeBox');
+                $('li').eq(index).addClass('activeBox');
+                $('.box').eq(index).addClass('activeBox');
+            });
+        });
+    </script>
+</body>
+
+</html>

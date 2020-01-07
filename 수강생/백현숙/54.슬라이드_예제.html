@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+
+    <style>
+        .container{
+            display: flex;
+        }
+        .circle{
+            margin: 30px 20px;
+            width: 200px;
+            height: 200px;
+            line-height: 200px ;
+            border-radius: 50%;
+            border: 1px solid;
+            font-size: 30px;
+            text-align: center;
+        }
+    .active{
+        background: tomato;
+    }
+    </style>
+</head>
+<body>
+    <button id="prev"><h1>이전</h1></button>
+    <button id="next"><h1>다음</h1></button>
+    <button id="auto"><h1>자동시작</h1></button>
+    <button id="stop"><h1>멈춤</h1></button>
+
+    
+    <div class="container">
+        <div class="circle active">1</div>
+        <div class="circle">2</div>
+        <div class="circle">3</div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $(document).on('click', '#prev', function(){
+                prev();
+            });
+            $(document).on('click', '#next', function(){
+                next();
+            });
+            $(document).on('click', '#auto', function(){
+                
+            });
+            $(document).on('click', '#stop', function(){
+                
+            });
+
+
+            var index = 0;
+            var length = $('.circle').length;
+
+            function prev(){
+                index--;
+                if(index===-1){
+                    index = length-1;
+                }
+                $('.circle').removeClass('active');
+                $('.circle').eq(index).addClass('active');
+                console.log(index);
+            };
+
+            function next(){
+                index++;
+                if(index===length){
+                    index = 0;
+                }
+                    $('.circle').removeClass('active');
+                    $('.circle').eq(index).addClass('active');
+                    console.log(index);
+            };
+
+            var on = false;
+            var interval;
+            $(document).on('click','#auto', function(){
+                if(on){
+                    return;
+                }
+                on=true;
+
+                interval = setInterval(function(){
+                    next();
+                },500);
+
+            });
+
+            $(document).on('click','#stop', function(){
+                on=false;
+                clearInterval(interval);
+            });
+        });
+    </script>
+</body>
+</html>

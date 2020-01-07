@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+    .box{width: 100px; height: 100px; background: tomato; transition: .2s;}
+    .active{background: tomato; width: 200px; height: 200px;}
+    .activeA{border-radius: 50px;}
+    #btn1{display: none;}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="box"></div>
+
+    <button id="btn1"><h1>버튼1</h1></button>
+    <button id="btn2"><h1>버튼2</h1></button>
+    <button id="btn3"><h1>버튼3</h1></button>
+    <button id="btn4"><h1>버튼2,3</h1></button>
+
+    <script>
+    $(document).ready(function(){
+        // $(document).on('click', '#btn1', function(){
+        //     $('.box').addClass('active');
+        // });
+        
+        // $(document).on('click', '#btn2', function(){
+        //     $('#btn1').trigger('click')
+        // });
+
+        $(document).on('click', '#btn1', function(){
+            $('.box').addClass('active');
+        });
+        $(document).on('click','#btn2', function(){
+            $('#btn1').trigger('click')
+        });
+
+        $(document).on('click','#btn3', function(){
+            $('.box').addClass('activeA')
+        });
+        $(document).on('click','#btn4', function(){
+            $('#btn2').trigger('click');
+            $('#btn3').trigger('click');
+        });
+    });    
+
+
+
+
+    </script>
+</body>
+</html>

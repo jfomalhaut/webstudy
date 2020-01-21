@@ -69,12 +69,47 @@
 				setPage(index);
 			});
 
+			var pageHTML = '';
 			function setPage(idx){
-				var pageHTML = `
-					<section class='sec${idx}'>
-						<h1>${idx}번째 페이지입니다.</h1>
-					</section>
-				`;
+				switch(idx){
+					case 0 : {
+						pageHTML = 
+						`<section class='sec1'>
+							<h1>1번째 페이지입니다.</h1>
+						</section>`;
+						break;
+					}
+					case 1 : {
+						pageHTML = 
+						`<section class='sec2'>
+							<img src='http://static.news.zumst.com/images/23/2017/07/28/2edeb6e56bf54dbc9049686e91a3694b.png'>
+						</section>`;
+						break;
+					}
+					case 2 : {
+						pageHTML = 
+						`<section class='sec1'>
+							<img src="https://i.ytimg.com/vi/hILmt8f46qg/maxresdefault.jpg">
+						</section>`;
+						break;
+					}
+					case 3 : {
+						pageHTML = 
+						`<section class='sec1'>
+							<img src="https://i.pinimg.com/originals/72/4d/64/724d644a5b427a119f76849eb2350ea2.jpg">
+						</section>`;
+						break;
+					}
+					case 4 : {
+						pageHTML = 
+						`<section class='sec1'>
+							<img src="http://kinimage.naver.net/storage/upload/2006/10/32/738056_1161085520.jpg">
+						</section>`;
+						break;
+					}
+					
+				}
+				
 				$('.container').html(pageHTML);
 			}
 		});

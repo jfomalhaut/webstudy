@@ -1,0 +1,83 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+		*{margin:0; padding:0; box-sizing: border-box; user-select: none;}
+		header{
+			height: 120px;
+		}
+		.top{
+			height: 80px;
+			display: flex;
+			font-size: 50px;
+			font-weight: bold;
+			background: black;
+			color: white;
+			justify-content: center;
+			align-items: center;
+		}
+		.bottom{
+			border-bottom: 1px solid;
+		}
+		ul{
+			width: 800px;
+			height: 40px;
+			margin: 0 auto;
+			display: flex;
+			align-items: center;
+		}
+		li{
+			list-style: none;
+			font-size: 20px;
+			width: 100%;
+			cursor: pointer;
+			text-align: center;
+			background: #f0f0f0;
+			line-height: 40px;
+		}
+		li:nth-child(odd){
+			background: tomato;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="top">
+			HEADER
+		</div>
+		<nav class="bottom">
+			<ul class="menu">
+				<li>MENU1</li>
+				<li>MENU2</li>
+				<li>MENU3</li>
+				<li>MENU4</li>
+				<li>MENU5</li>
+			</ul>
+		</nav>
+	</header>
+	<main class="container"></main>
+	<script>
+		$(document).ready(function(){
+			var index = 0; 
+			var html = '';
+			
+			setPage(index);
+
+			$(document).on('click', '.menu li', function(){
+				index = $(this).index();
+				setPage(index);
+			});
+
+			function setPage(idx){
+				var pageHTML = `
+					<section class='sec${idx}'>
+						<h1>${idx}번째 페이지입니다.</h1>
+					</section>
+				`;
+				$('.container').html(pageHTML);
+			}
+		});
+	</script>
+</body>
+</html>

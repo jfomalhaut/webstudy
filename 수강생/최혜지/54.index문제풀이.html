@@ -95,8 +95,7 @@
             // 클릭 이벤트
             $(document).on('click', '.cir', function(){
                 index = $(this).index();
-                $('.cir').removeClass('active');
-                $('.cir').eq(index).addClass('active');
+                $('.cir').removeClass('active').eq(index).addClass('active');
             });
         });
     </script>

@@ -50,14 +50,6 @@
             });
 
             // next
-            $(document).on('click', '#next', function(){
-                index++;
-                if(index === length){
-                    index = 0;
-                }
-                $('.cir').removeClass('active');
-                $('.cir').eq(index).addClass('active');
-            });
             function next(){
                 index++;
                 if(index === length){
@@ -66,26 +58,18 @@
                 $('.cir').removeClass('active');
                 $('.cir').eq(index).addClass('active');
             }
+            $(document).on('click', '#next', function(){
+                next();
+            });
             // auto
             $(document).on('click', '#auto', function(){
                 interval = setInterval(function(){
                     next();
-                    // if(on === true){
-                    //     return;
-                    // }
-                    // if(index === length){
-                    //     index = 0;
-                    // }
-                    // index++;
-                    // on = true;
-                    // $('.cir').removeClass('active');
-                    // $('.cir').eq(index).addClass('active');
                 },1000);
             });
 
             // stop
             $(document).on('click', '#stop', function(){
-                on = false;
                 clearInterval(interval);
             });
 

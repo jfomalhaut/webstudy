@@ -1,0 +1,79 @@
+<html>
+<head>
+	<style>
+		button{
+			font-size: 30px;
+		}
+		b,i{
+			font-size: 30px;
+		}
+	</style>
+</head>
+<body>
+	<button onclick="fil(0)">전체보기</button>
+	<button onclick="fil(1)">흐물거리는</button>
+	<button onclick="fil(2)">등 푸른 생선</button>
+	<button onclick="fil(3)">갑각류</button>
+
+	<div id="container"></div>
+	<script>
+		// type1 => 흐물거리는
+		// type2 => 등 푸른 생선
+		// type3 => 갑각류
+
+		var fishes = [
+			{id: 1, name: '오징어', type: 1 },
+			{id: 1, name: '오징어2', type: 1 },
+			{id: 1, name: '오징어3', type: 1 },
+			{id: 1, name: '오징어4', type: 1 },
+			{id: 1, name: '오징어5', type: 1 },
+			{id: 6, name: '고등어', type: 2 },
+			{id: 6, name: '고등어2', type: 2 },
+			{id: 6, name: '고등어3', type: 2 },
+			{id: 6, name: '고등어4', type: 2 },
+			{id: 6, name: '고등어5', type: 2 },
+			{id: 11, name: '꽃게', type: 3 },
+			{id: 11, name: '꽃게2', type: 3 },
+			{id: 11, name: '꽃게3', type: 3 },
+			{id: 11, name: '꽃게4', type: 3 },
+			{id: 11, name: '꽃게5', type: 3 },
+		];
+
+		var arr = ['철수', '민수', '영희'];
+		var arr2 = [1,2,3,4,5,6,7,8,9,10];
+		var filter;
+		var html = '';
+		var text = '';
+
+		fil(0);
+
+		function fil(value){ // 1,2,3
+			if(value === 0){
+				filter = fishes;
+			}else{
+				filter = fishes.filter(function(item){
+					return item.type === value
+				});
+			}
+			makeHtml(filter);
+		}
+
+		function makeHtml(data){
+			html = '';
+			for(var i in data){
+				text = `
+					<div class="item">
+						<b>${data[i].name}</b>
+						<i>${data[i].type}</i>
+					</div>
+				`;
+				html += text;
+			}
+
+			document.getElementById('container').innerHTML = html;
+			// $('#container').html(html);
+		}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+
+</head>
+<body>
+	<script>
+		var num = 500000000000;
+
+		num = comma(num);
+
+		console.log(num+"원");
+
+		function comma(num){
+			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		}
+	</script>
+
+</body>
+</html>

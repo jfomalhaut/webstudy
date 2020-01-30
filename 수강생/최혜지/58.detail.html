@@ -1,0 +1,76 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        h1{ 
+            font-size: 30px;
+        }
+        .item{
+            display: flex;
+        }
+        #itemImg{
+            margin-top: 20px;
+            width: 400px;
+        }
+        .right{
+            margin-top: 15px;
+            margin-left: 30px;
+        }
+        #name{
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>마켓컬리<br>상세페이지</h1>
+    <div class="item">
+        <div class="left">
+            <img id="itemImg">
+        </div>
+        <div class="right">
+            <div id="name"></div>
+            <div id="price"></div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var pdt = [
+                { id:1, name:"GAP 고당도 씨없는 수박",price: 19800, event:15000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img1.jpg", new: true },
+                { id:2, name:"GAP 고당도 씨없는 참외",price: 29800, event:25000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img2.jpg", new: true },
+                { id:3, name:"GAP 고당도 씨없는 딸기",price: 39800, event:39800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img3.jpg", new: false },
+                { id:4, name:"GAP 고당도 씨없는 체리",price: 49800, event:45000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img4.jpg", new: true },
+                { id:5, name:"GAP 고당도 씨없는 자몽",price: 59800, event:59800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img5.jpg", new: true },
+                { id:6, name:"GAP 고당도 씨없는 포도",price: 69800, event:69800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img6.jpg", new: false },
+                { id:7, name:"GAP 고당도 씨없는 샤인머스크",price: 79800, event:75000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img7.jpg", new: false },
+                { id:8, name:"GAP 고당도 씨없는 귤",price: 89800, event:89800, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img8.jpg", new: true },
+                { id:9, name:"GAP 고당도 씨없는 배",price: 99800, event:95000, desc: "씨가 없어 편리하게 즐기는 달콤한 수박(1통/6kg이상)",src: "img9.jpg", new: true }
+            ];
+
+            // 1. 우리가 가져온 itemId값이 무엇인지 먼저 찾을 것
+            // 2. 그 값에 해당하는 pdt 내의 상품을 찾을 것
+            // 3. 그 상품을 출력
+
+            getUrl();
+
+            function getUrl(){
+                var pageUrl = window.location.search.substring(1); //?itemId=1
+                var value = pageUrl.split('=')[1]*1;
+                var item = pdt.filter(function(res){
+                    return res.id === value;
+                });
+
+                $('#itemImg').attr('src', 'img2/'+item[0].src);
+                $('#name').html(item[0].name);
+                $('#price').html(item[0].price + '원');
+            }
+        });
+    </script>
+</body>
+</html>

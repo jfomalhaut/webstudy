@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <script>
+        // concat : 배열을 합침
+        $(document).ready(function(){
+            var arr1 = [1,2,3,4];
+            var arr2 = [5,6];
+            var arr3 = arr1.concat(arr2);
+            console.log(arr3);
+
+            var name = ['오사마', '빈', '라덴'];
+            // join() <- 이 빈칸에 아무것도 쓰지 않으면 , 가 들어간다 / 문자열로 쪼개는법
+            var name2 = name.join(' ');
+            console.log(name2);
+
+            var cart = [1,2,3,4];
+            var itemId = 3;
+
+            // 문제1. 있는지 없는지 체크
+            if(cart.indexOf(itemId) === -1){
+                alert('없습니다');
+            }else{
+                alert('있습니다');
+            }
+
+
+            var newItem = 5;
+            // 문제2. cart안에 newItem 넣기
+            cart.push(newItem);
+            console.log(cart);
+
+
+            // cart에서 특정 index빼기
+            // splice => ([뺄 요소의 인덱스], ~[부터 n개])
+            // cart.splice(2, 1);
+            // console.log(cart);
+
+
+            // 문제3. cart에서 4번을 빼세요
+            // cart.splice(3, 1);
+            // console.log(cart);
+
+            // 문제4. cart에서 4번을 빼세요
+            // 단, 우리가 육안으로는 4의 index를 확인할 수 없습니다
+            // HINT
+            // 1) 가장 먼저 뺄 숫자의 index를 구한다
+            // 2) splice 메소드로 제거한다
+            // var index = cart.indexOf(4)
+            // cart.splice(index, 1);
+            // console.log(cart);
+
+            // 문제5. cart를 전부 비워보세요
+            cart.splice(0); // index만 써주면 index 이후로 모두 지워진다
+            // cart = []; // 두번째 방식
+            console.log(cart);
+        });
+    </script>
+</body>
+</html>

@@ -7,6 +7,18 @@
 		b,i{
 			font-size: 30px;
 		}
+		.best{
+			background: red;
+			color: white;
+			border-radius: 5px;
+			font-weight: bold;
+			padding: 2px 10px;
+			margin-left: 10px;
+		}
+		.item{
+			display: flex;
+			align-items: center;
+		}
 	</style>
 </head>
 <body>
@@ -22,21 +34,21 @@
 		// type3 => 갑각류
 
 		var fishes = [
-			{id: 1, name: '오징어', type: 1 },
-			{id: 1, name: '오징어2', type: 1 },
-			{id: 1, name: '오징어3', type: 1 },
-			{id: 1, name: '오징어4', type: 1 },
-			{id: 1, name: '오징어5', type: 1 },
-			{id: 6, name: '고등어', type: 2 },
-			{id: 6, name: '고등어2', type: 2 },
-			{id: 6, name: '고등어3', type: 2 },
-			{id: 6, name: '고등어4', type: 2 },
-			{id: 6, name: '고등어5', type: 2 },
-			{id: 11, name: '꽃게', type: 3 },
-			{id: 11, name: '꽃게2', type: 3 },
-			{id: 11, name: '꽃게3', type: 3 },
-			{id: 11, name: '꽃게4', type: 3 },
-			{id: 11, name: '꽃게5', type: 3 },
+			{id: 1, name: '오징어', type: 1, best: false },
+			{id: 1, name: '오징어2', type: 1, best: true },
+			{id: 1, name: '오징어3', type: 1, best: false },
+			{id: 1, name: '오징어4', type: 1, best: true },
+			{id: 1, name: '오징어5', type: 1, best: true },
+			{id: 6, name: '고등어', type: 2, best: false },
+			{id: 6, name: '고등어2', type: 2, best: false },
+			{id: 6, name: '고등어3', type: 2, best: true },
+			{id: 6, name: '고등어4', type: 2, best: false },
+			{id: 6, name: '고등어5', type: 2, best: true },
+			{id: 11, name: '꽃게', type: 3, best: true },
+			{id: 11, name: '꽃게2', type: 3, best: false },
+			{id: 11, name: '꽃게3', type: 3, best: false },
+			{id: 11, name: '꽃게4', type: 3, best: false },
+			{id: 11, name: '꽃게5', type: 3, best: true },
 		];
 
 		var arr = ['철수', '민수', '영희'];
@@ -60,11 +72,27 @@
 
 		function makeHtml(data){
 			html = '';
+			var name = '';
+			var type = 0;
+			var best = '';
+			var bestTag = '';
+
 			for(var i in data){
+				name = data[i].name;
+				type = data[i].type;
+				best = data[i].best;
+
+				bestTag = '';
+				
+				if(best){ // true 느낌표를 붙이면 false가 된다
+					bestTag = `<span class="best">BEST</span>`;
+				}
+
 				text = `
 					<div class="item">
-						<b>${data[i].name}</b>
-						<i>${data[i].type}</i>
+						<b>${name}</b>
+						<i>${type}</i>
+						${bestTag}
 					</div>
 				`;
 				html += text;

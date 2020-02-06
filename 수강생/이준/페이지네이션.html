@@ -1,0 +1,108 @@
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<style>
+		*{margin:0; padding:0;}
+		.container{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 10px;
+			width: 1000px;
+			margin: 100px auto;
+		}
+		.pagination{
+			display: flex;
+			margin: 50px auto;
+			width: 1000px;
+			justify-content: center;
+		}
+		li{
+			user-select: none;
+			cursor: pointer;
+			list-style: none;
+			padding: 5px 10px;
+			font-size: 30px;
+			color: #999;
+		}
+		.active{
+			color:red;
+		}
+		.content{
+			height: 150px;
+			background: tomato;
+			color: white;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 40px;
+			font-weight: 800;
+		}
+		.name{
+			font-size: 20px;
+			font-weight: bold;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class="container"></div>
+	<ul class="pagination"></ul>
+	<script>
+		$(document).ready(function(){
+			var items = [];
+			var view = 8;
+			var length, total, pageHtml = '', pageNum = 0, html = '', text = '';
+			
+			// json 임시로 만드는 부분
+			for(var i = 0; i<=58; i++){
+				items.push({id: i+1, name:'name'+(i+1), num: i+1});
+			}
+
+			// 페이지 클릭 이벤트
+			$(document).on('click', 'li', function(){
+				pageNum = $(this).index(); 
+				setPage(pageNum);
+			});
+
+			// 페이지네이션 만드는 부분
+			makePagination();
+			function makePagination(){
+				length = items.length; // 58
+				total = Math.ceil(length/view); //올림
+				for(var i = 1; i<= total; i++){
+					pageHtml += `<li>${i}</li>`;
+				}
+				$('.pagination').html(pageHtml);
+				setPage(pageNum);
+			}
+
+			function setPage(page){
+				$('li').removeClass('active').eq(page).addClass('active');
+				setDocument();
+			}
+
+			function setDocument(){
+				var start = pageNum * view;
+				var end = start + view - 1;
+
+				if(end > length - 1){
+					end = length - 1;
+				}
+
+				html = '';
+				for(var i = start; i <= end; i++){
+					text = `
+						<div class='item'>
+							<div class="content">${items[i].num}</div>
+							<div class="name">${items[i].name}</div>
+						</div>
+					`;
+					html += text;
+				}
+
+				$('.container').html(html);
+			}
+		});	
+	</script>
+</body>
+</html>

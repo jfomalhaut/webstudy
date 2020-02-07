@@ -1,0 +1,80 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="routes/main.js"></script>
+	<script src="routes/list.js"></script>
+	<script src="routes/items.js"></script>
+	<script src="routes/setting.js"></script>
+	<script src="routes/index.js"></script>
+	<style>
+		*{margin:0;padding:0;box-sizing: border-box;}
+		header{
+			height: 200px;
+			display: flex;
+			flex-direction: column;
+			background: black;
+		}
+		nav{
+			border-bottom: 1px solid #000;
+			border-top: 1px solid #000;
+			align-self: flex-end;
+			height: 50px;
+			width: 100%;
+			background: white;
+		}
+		h1.title{
+			color: white;
+			line-height: 150px;
+			text-align: center;
+			width: 200px;
+			margin: 0 auto;
+		}
+		h1:not(.title){
+			font-size: 80px;
+		}
+		ul{
+			width: 1000px;
+			margin: 0 auto;
+			display: flex;
+		}
+		li{
+			cursor: pointer;
+			user-select: none;
+			list-style: none;
+			width: 100%;
+			font-size: 30px;
+			text-align: center;
+			line-height: 50px;
+		}
+		li:hover{
+			color: blue;
+		}
+		li:active{
+			color: darkblue;
+		}
+		section{
+			min-height: calc(100vh - 200px);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1 class='title'>HEADER</h1>
+		<nav>
+			<ul>
+				<li onclick="route('Main')">MAIN</li>
+				<li onclick="route('List')">LIST</li>
+				<li onclick="route('Items')">ITEMS</li>
+				<li onclick="route('Setting')">SETTING</li>
+			</ul>
+		</nav>
+	</header>
+	<div id="container"></div>
+</body>
+</html>
